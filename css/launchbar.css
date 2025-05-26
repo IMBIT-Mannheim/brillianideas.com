@@ -1,0 +1,468 @@
+/*
+	Launchbar
+	by Erik Garstka
+	WIMBIT17B
+	Dez. 2019
+*/
+
+.launchbar {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  left: 0;
+  margin: 0;
+  transition: max-height 1s linear;
+  max-height: 0px;
+  bottom: 0px;
+  z-index: 100;
+}
+
+.launchbar.open {
+  max-height: 25%;
+}
+
+ul.launchbar_list {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  list-style-type: none;
+  margin-top: 0%;
+  padding: 0;
+  width: 100%;
+}
+.launchbar_list li a img.icon {
+  max-width: 80%;
+}
+.launchbar_list > li {
+  float: left;
+  text-align: center;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  max-width: 11%;
+  margin: 0 0.5%;
+}
+ul.launchbar_list {
+  z-index: 2;
+}
+
+/* Tentakel zum öffnen bzw. schließen */
+#tentacle_img_small_launchbar {
+  width: 8rem;
+  margin-top: -156px;
+  margin-left: 3vw;
+  cursor: pointer;
+  position: fixed;
+  animation-name: pulse;
+  animation-duration: 4s;
+  animation-delay: 2.2s;
+  animation-iteration-count: infinite;
+  animation: tilt-n-move-shaking 2.5s infinite;
+  z-index: 0;
+}
+
+@keyframes tilt-n-move-shaking {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  60% {
+    transform: translate(5px, 3px) rotate(3deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+.icon {
+  cursor: pointer;
+  max-height: 60%;
+  min-height: 40px;
+  max-width: 60%;
+  min-width: 40px;
+}
+
+/* Launchbar Animation */
+#launchbar {
+  animation-name: launchbar;
+  animation-duration: 1.5s;
+}
+
+/*Animation */
+@keyframes launchbar {
+  20% {
+    max-height: 6%;
+  }
+  40% {
+    max-height: 2%;
+  }
+  60% {
+    max-height: 5%;
+  }
+  100% {
+    max-height: 0;
+  }
+}
+
+/* Animation für das Pulsieren des kleinen Tentakels*/
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+  5% {
+    transform: scale(1.2, 1.2);
+  }
+  12.5% {
+    transform: scale(1, 1);
+  }
+  17.5% {
+    transform: scale(1.1, 1.1);
+  }
+  25% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+/* Animation Blasen*/
+@keyframes rise {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(0px, -1700px);
+  }
+}
+
+.tentacle_small_launchbar_microAnimation {
+  bottom: -200px;
+  margin-left: 5px;
+  height: 15%;
+  width: auto;
+  position: fixed;
+  animation-name: rise;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+.bubbles1 {
+  animation-delay: 2s;
+}
+.bubbles2 {
+  animation-delay: 2.25s;
+}
+.bubbles3 {
+  animation-delay: 2.5s;
+}
+
+.tentacle_small_launchbar_microAnimation.visibility {
+  height: 0px;
+}
+
+.slide_mover {
+  margin-left: 40px;
+}
+.slider_box_frame_definer {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: 400px;
+  width: 1200px;
+  margin-bottom: 150px;
+}
+
+.slider_box_item_1 {
+  z-index: 10;
+  transition: 2s;
+  position: absolute;
+  margin-left: 250px;
+  height: 400px;
+  width: 650px;
+}
+
+.slider_box_item_2 {
+  transition: 2s;
+  position: absolute;
+  margin: 0;
+  height: 350px;
+  width: 650px;
+  padding-top: 25px;
+  margin-left: 100px;
+  z-index: 8;
+  opacity: 0.9;
+}
+
+.slider_box_item_3 {
+  transition: 2s;
+  position: absolute;
+  margin: 0;
+  height: 300px;
+  margin-left: 10px;
+  padding-top: 50px;
+  width: 650px;
+  z-index: 6;
+  opacity: 0.6;
+}
+
+.slider_box_item_4 {
+  transition: 2s;
+  position: absolute;
+  margin: 0;
+  padding-top: 50px;
+  margin-left: 500px;
+  height: 300px;
+  width: 650px;
+  z-index: 6;
+  opacity: 0.6;
+}
+.slider_box_item_5 {
+  transition: 2s;
+  position: absolute;
+  margin: 0;
+  height: 350px;
+  width: 650px;
+  padding-top: 25px;
+  z-index: 8;
+  opacity: 0.9;
+  margin-left: 400px;
+}
+
+.left_click_recognition {
+  position: absolute;
+  margin: 0;
+  height: 300px;
+  margin-left: 10px;
+  padding-top: 50px;
+  width: 90px;
+  z-index: 6;
+}
+
+.middle_left_click_recognition {
+  position: absolute;
+  margin: 0;
+  height: 350px;
+  width: 150px;
+  padding-top: 25px;
+  margin-left: 100px;
+  z-index: 8;
+}
+.right_click_recognition {
+  position: absolute;
+  margin: 0;
+  padding-top: 50px;
+  margin-left: 1050px;
+  height: 300px;
+  width: 100px;
+  z-index: 6;
+}
+.middle_right_click_recognition {
+  position: absolute;
+  margin: 0;
+  height: 350px;
+  width: 150px;
+  padding-top: 25px;
+  z-index: 8;
+  margin-left: 900px;
+}
+
+/* Whitepaper slides */
+
+.slider_box_item_11 {
+  z-index: 10;
+  transition: 2s;
+  position: absolute;
+  margin-left: 250px;
+  height: 400px;
+  width: 650px;
+}
+
+.slider_box_item_12 {
+  transition: 2s;
+  position: absolute;
+  margin: 0;
+  height: 350px;
+  width: 650px;
+  padding-top: 25px;
+  margin-left: 100px;
+  z-index: 8;
+  opacity: 0.9;
+}
+
+.slider_box_item_13 {
+  transition: 2s;
+  position: absolute;
+  margin: 0;
+  height: 300px;
+  margin-left: 10px;
+  padding-top: 50px;
+  width: 650px;
+  z-index: 6;
+  opacity: 0.6;
+}
+
+.slider_box_item_14 {
+  transition: 2s;
+  position: absolute;
+  margin: 0;
+  height: 300px;
+  margin-left: 10px;
+  padding-top: 50px;
+  width: 650px;
+  z-index: -1;
+  opacity: 0;
+}
+
+.slider_box_item_15 {
+  transition: 2s;
+  position: absolute;
+  margin: 0;
+  height: 300px;
+  margin-left: 10px;
+  padding-top: 50px;
+  width: 650px;
+  z-index: -2;
+  opacity: 0;
+}
+
+.slider_box_item_16 {
+  transition: 2s;
+  position: absolute;
+  margin: 0;
+  height: 300px;
+  margin-left: 10px;
+  padding-top: 50px;
+  width: 650px;
+  z-index: -1;
+  opacity: 0;
+}
+
+.slider_box_item_17 {
+  transition: 2s;
+  position: absolute;
+  margin: 0;
+  padding-top: 50px;
+  margin-left: 500px;
+  height: 300px;
+  width: 650px;
+  z-index: 6;
+  opacity: 0.6;
+}
+
+.slider_box_item_18 {
+  transition: 2s;
+  position: absolute;
+  margin: 0;
+  height: 350px;
+  width: 650px;
+  padding-top: 25px;
+  z-index: 8;
+  opacity: 0.9;
+  margin-left: 400px;
+}
+
+.left_click_recognition_whitepaper {
+  position: absolute;
+  margin: 0;
+  height: 300px;
+  margin-left: 10px;
+  padding-top: 50px;
+  width: 90px;
+  z-index: 6;
+}
+
+.middle_left_click_recognition_whitepaper {
+  position: absolute;
+  margin: 0;
+  height: 350px;
+  width: 150px;
+  padding-top: 25px;
+  margin-left: 100px;
+  z-index: 8;
+}
+.right_click_recognition_whitepaper {
+  position: absolute;
+  margin: 0;
+  padding-top: 50px;
+  margin-left: 1050px;
+  height: 300px;
+  width: 100px;
+  z-index: 6;
+}
+.middle_right_click_recognition_whitepaper {
+  position: absolute;
+  margin: 0;
+  height: 350px;
+  width: 150px;
+  padding-top: 25px;
+  z-index: 8;
+  margin-left: 900px;
+}
+
+.slider_box_item_21 {
+  z-index: 10;
+  transition: 2s;
+  position: absolute;
+  margin-left: 250px;
+  height: 400px;
+  width: 650px;
+}
+
+.slider_box_item_22 {
+  transition: 2s;
+  position: absolute;
+  margin: 0;
+  height: 350px;
+  width: 650px;
+  padding-top: 25px;
+  margin-left: 100px;
+  z-index: 8;
+  opacity: 0.9;
+}
+
+.slider_box_item_23 {
+  transition: 2s;
+  position: absolute;
+  margin: 0;
+  height: 300px;
+  margin-left: 250px;
+  padding-top: 50px;
+  width: 650px;
+  z-index: -2;
+  opacity: 0;
+}
+
+.slider_box_item_24 {
+  transition: 2s;
+  position: absolute;
+  margin: 0;
+  height: 350px;
+  width: 650px;
+  padding-top: 25px;
+  z-index: 8;
+  opacity: 0.9;
+  margin-left: 400px;
+}
+
+.middle_left_click_recognition_swl {
+  position: absolute;
+  margin: 0;
+  height: 350px;
+  width: 150px;
+  padding-top: 25px;
+  margin-left: 100px;
+  z-index: 8;
+}
+
+.middle_right_click_recognition_swl {
+  position: absolute;
+  margin: 0;
+  height: 350px;
+  width: 150px;
+  padding-top: 25px;
+  z-index: 8;
+  margin-left: 900px;
+}
+
+.ueberschrift_titel {
+  font-family: "Caveat Brush", sans-serif;
+  color: white;
+  font-size: 4.5vw;
+}

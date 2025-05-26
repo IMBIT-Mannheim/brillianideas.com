@@ -1,0 +1,13 @@
+ErrorDocument 404 /content/404page.html
+Options -Indexes
+
+# Set the cache-control max-age
+#  90 Tage Cache
+<FilesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|swf|woff2)$">
+Header set Cache-Control "max-age=7776000, public"
+</FilesMatch>
+
+# 4 HOURS
+<FilesMatch ".(html|htm|css|js)$">
+Header set Cache-Control "max-age=14400, must-revalidate"
+</FilesMatch>

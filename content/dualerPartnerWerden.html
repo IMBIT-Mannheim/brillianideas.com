@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <title>Dualer Partner werden</title>
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta
+      name="description"
+      content="Die 'Dualer Partner Werden'-Seite ist ein Teil der digitale Lernplattform brillianIDEAS des IMBIT-Studiengans und bietet Informationen für Unternehmen zum Dualen Studium."
+    />
+  <link rel="shortcut icon" href="../img/shakehands.png" type="image/ico" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/impressum.css" />
+  <link rel="stylesheet" type="text/css" href="../css/quiz.css" />
+  <link rel="stylesheet" href="../css/fonts.css" />
+  <link rel="stylesheet" href="../css/splide.min.css" />
+  <link rel="stylesheet" href="../css/splide-extension-video.min.css" />
+  <link rel="stylesheet" href="../css/lightbox.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <style>
+    h1 {
+      color: #9d0b00;
+      font-family: 'Caveat Brush';
+      font-size: 40px;
+    }
+
+    h2 {
+      color: #9d0b00;
+      font-family: 'Caveat Brush';
+      font-size: 25px;
+    }
+
+    h3 {
+      color: #9d0b00;
+      font-family: 'Caveat Brush';
+      font-size: 18px;
+    }
+
+    .correctfont {
+      font-family: 'Tinos';
+    }
+
+    body {
+      font-family: 'Tinos';
+      color: #000011;
+    }
+
+    a:link {
+      color: #fff9ee;
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    a:visited.dual {
+      color: #fff9ee;
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    a:hover.dual {
+      color: #ffe1d2;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    .unternehmen_bullet {
+      padding-bottom: 2px;
+    }
+
+    li:nth-of-type(even) img {
+      float: right;
+      padding-left: 1%;
+    }
+
+    #krakenkopf[data-v-44ec9b1c] {
+      cursor: pointer;
+      position: absolute;
+      width: 4rem;
+    }
+  </style>
+  <script>
+    // function for loading modals
+    function closeCurrentWindow() {
+      window.close();
+    }
+    let id_modal = '';
+
+    function showmodal(id) {
+      id_modal = id + '_content';
+      document.getElementById(id_modal).style.display = 'inline-block';
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    function hideModalFromSpan() {
+      document.getElementById(id_modal).style.display = 'none';
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    function hideModalFromClick() {
+      let e = window.event; //get the event which is triggered right now in the window
+
+      //e.target.id -> get the id of the object which triggered event e
+      //close the modal if this id == id_modal (everything outside the modal itself)
+      if (id_modal === e.target.id) {
+        document.getElementById(id_modal).style.display = 'none';
+      }
+    }
+
+    // Function to reveal lightbox and adding YouTube autoplay
+    function revealVideo(div, video_id, link) {
+      // console.log(video);
+      // var video = document.getElementById(video_id).src;
+      document.getElementById(video_id).src = link + '?&autoplay=1'; // adding autoplay to the URL
+      document.getElementById(div).style.display = 'block';
+    }
+
+    // Hiding the lightbox and removing YouTube autoplay
+    function hideVideo(div, video_id) {
+      let video = document.getElementById(video_id).src;
+      // removing autoplay form url
+      document.getElementById(video_id).src = video.replace(
+        '&autoplay=1',
+        ''
+      );
+      document.getElementById(div).style.display = 'none';
+    }
+  </script>
+
+  <!-- Bubble Background Component -->
+  <script type="module" src="../components/bubbleBackground/bubbleBackground.js"></script>
+  <link rel="stylesheet" href="../components/bubbleBackground/bubbleBackground.css" />
+
+  <!-- Duale Partner Component -->
+  <script type="module" src="../components/dualePartner/dualePartner.js"></script>
+</head>
+
+<body style="position: unset">
+  <bubble-background></bubble-background>
+
+  <header>
+    <img src="../img/Tintenfisch_Kopf_HOME_gedreht_ex.png" alt="Kopf der Krake" id="krakenkopf" data-v-44ec9b1c=""
+      onclick="closeCurrentWindow()">
+      <a href="./dual.html" class="dual" style="position: absolute; margin-left: 95%;">
+        <img src="../img/launchbar/stoererDual.png" alt="Logo_Dual"style="width: 40px; float:right; vertical-align: middle; margin: 10px;">
+      </a>
+  </header>
+
+  <div id="main-container" style="margin: 2em">
+    <h1 style="padding-top: 1em">Dualer Partner werden</h1>
+    <h2>Warum das duale Studium an der DHBW für Ausbildungspartner attraktiv ist.</h2>
+    <p>Abgesehen von der fachlich und methodisch exzellenten Ausbildung der Studenten, bietet die Kooperation mit der DHBW für Ausbildungsbetriebe diverse weitere Möglichkeiten:</p>
+    
+
+  <style> 
+  .list-container {
+    margin-bottom: 3rem;
+  }
+
+  .list-container li {
+    width: calc(33% - 3rem);
+    min-width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 3rem;
+    padding-top: 1rem;
+  }
+
+  .list-container-50 {
+    margin-bottom: 3rem;
+  }
+
+  .list-container-50 li {
+    width: calc(50% - 4rem);
+    min-width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 3rem;
+    padding-top: 1rem;
+  }
+  </style>
+
+  <ul class="list-container">  
+    <li>  
+    <h3>Nachwuchs für das Unternehmen finden</h3>
+    <p>
+      Stellen Sie Ihr Unternehmen den Studieninteressierten als potenzieller Praxispartner vor! Prägen Sie den Werdegang von künftigen Fach- und Führungskräften. 
+    </p>
+    </li>
+    <li>
+    <h3>Eigene Mitarbeiter weiterbilden</h3>
+    <p>
+      Bieten Sie Ihren bewerten Mitarbeiter die Möglichkeit einer akademischen Weiterbildung und halten Sie sie langfristig im Unternehmen.
+    </p>
+    </li>
+    <li>
+    <h3>Mitgestalten und am Netzwerk partizipieren</h3>
+    <p>
+      Stellen Sie Dozenten für Lehrveranstaltungen, bringen Sie sich in akademische Gremien ein und tauschen Sie sich mit anderen Ausbildungspartnern im Rahmen von Arbeitskreisen aus.
+    </p>
+    </li>
+  </ul>
+
+    <h2>Die wichtigsten Vorteile im Überblick</h2>
+
+<ul class="list-container-50">
+  <li>
+    <h3>Mitarbeiter</h3>
+    <p>
+      Das duale Studium vermittelt fachübergreifende theoretische und praktische Kenntnisse und Fähigkeiten. Bei den praktischen Themen werden vor allem im IMBIT-Studium zukunftsorientierte und neuartige Themen frühzeitig aufgegriffen. </br>
+      Die Studenten verlieren nie die Nähe und Bindung zum eigenen Unternehmen; zusätzlich lernen Sie die Firmenkultur der Unternehmen der Kommilitonen kennen. Dadurch bauen sie bereits in der Ausbildung ein breites Netzwerk über Unternehmensgrenzen hinweg aufzubauen. 
+    </p></li>
+
+    <li>
+    <h3>Personalabteilung</h3>
+    <p>
+      Das System der dualen Hochschule des Landes Baden-Württemberg ist ein seit Langem bewährtes Vorbild. Der gut strukturierte Studienverlaufsplan gibt einen klaren Weg vor, den schon viele Unternehmen und Studenten gegangen sind und hält der Personalabteilung den Rücken frei. </br>
+      Das duale Studium an der DHBW eignet sich gut als Baustein eines Führungskräfteprogramms, um qualifizierten Mitarbeitern einen akademischen Abschluss zu ermöglichen und sie im Unternehmen zu halten. Dank der zwölf DHBW-Standorte ist auch ein Studium nahe des Unternehmens oder in Heimatnähe möglich.
+    </p></li>
+
+    <li>
+    <h3>Wirtschaftlich</h3>
+    <p>
+      Die Studenten tragen schon während ihrer Ausbildung zur Wertschöpfung im Unternehmen bei. Sie können, neben dem Einstieg nach dem Abitur oder einem Studienwechsel, auch von einer festen Anstellung aus starten. Nach dem beendeten Studium können sie dann nahtlos im Unternehmen bleiben, wie es über 85% der DHBW-Absolventen tun. </br>
+      Die Ausbildungspartner haben keinerlei Zahlungsverpflichtung gegenüber der DHBW. Während des Studiums an der staatlichen dualen Hochschule bringen Studenten über Ihre interne Leistung hinaus auch einen Wert in das eigene Unternehmen: Sie erhalten Zugang zu fachlicher Expertise der erfahrenen Dozenten, die im Rahmen der wissenschaftlichen Betreuung auch betriebliche Themen mitbegleiten. 
+    </p></li>
+
+    <li>
+    <h3>Als Unternehmen einbringen</h3>
+    <p>
+      Sich als Unternehmen in die akademische Lehre, in Prüfungen oder interne Gremien der DHBW einzubringen hat diverse Vorteile: Dozenten und Gremienmitglieder der eigenen Firma in der dualen Hochschule haben einen positiven Einfluss auf die Reputation des Unternehmens. Abgesehen von Marketingzwecken sind die Praxispartner dadurch auch in der Lage, die kommende Generation der Fachkräfte entsprechend der eigenen Vorstellung von der ökonomischen und technologischen Zukunft zu prägen. 
+    </p></li>
+  </ul>
+
+    
+
+    <ul>
+      <li class="podcast" style="margin-bottom: 5px">
+        <a href="https://www.mannheim.dhbw.de/duale-partner/dualer-partner-werden/zulassung"  rel="noreferrer"  target="_blank" style="color:black">Dualer Partner werden</a>
+      </li>
+      <li class="podcast" style="margin-bottom: 5px">
+        <a href="https://www.mannheim.dhbw.de/duale-partner/duale-partner/duale-partner-dhbw-mannheim"   target="_blank" rel="noreferrer" style="color:black">Partner-Netzwerk</a>
+      </li>
+      <li class="podcast" style="margin-bottom: 5px">
+        <a href="https://www.mannheim.dhbw.de/duale-partner/duale-partner/duale-partnerschaft"  rel="noreferrer"  target="_blank" style="color:black">Duale Partnerschaft</a>
+      </li>
+    </ul>
+
+
+
+  </div>
+
+</body>
+
+</html>

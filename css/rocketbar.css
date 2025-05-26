@@ -1,0 +1,63 @@
+.launchbar {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  left: 0;
+  margin: 0;
+  transition: max-height 1s linear;
+  max-height: 0px;
+  bottom: 0px;
+}
+.launchbar.open {
+  max-height: 25%;
+}
+
+/* Launchbar Animation */
+#launchbar {
+  animation-name: launchbar;
+  animation-duration: 2s;
+}
+/*Animation onload */
+@keyframes launchbar {
+  20% {
+    max-height: 5%;
+  }
+  40% {
+    max-height: 2%;
+  }
+  60% {
+    max-height: 5%;
+  }
+  100% {
+    max-height: 0;
+  }
+}
+/* tentacle on top of rocketbar */
+#tentacle_img_small_launchbar {
+  margin-top: -48px;
+  margin-left: 5vw;
+  cursor: pointer;
+  position: fixed;
+}
+/* grid classes */
+.icon {
+  cursor: pointer;
+  max-height: 60%;
+  min-height: 40px;
+  max-width: 60%;
+  min-width: 40px;
+}
+.launchbar_list {
+  background-color: rgba(0, 0, 0, 0.5);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.launchbar_list > li {
+  float: left;
+  text-align: center;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  max-width: 13%;
+  margin: 0 0.5%;
+}

@@ -1,0 +1,937 @@
+﻿/*
+	Neustrukturierung
+	by Erik Garstka
+	WIMBIT17B
+	Dez. 2019
+*/
+
+/* Schriftarten */
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lato Regular"), local("Lato-Regular"),
+    url("../fonts/lato-v14-latin/lato-v14-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url("../fonts/lato-v14-latin/lato-v14-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+  font-family: "Tinos";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Tinos Regular"), local("Tinos-Regular"),
+    url("../fonts/tinos-v11-latin/tinos-v11-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url("../fonts/tinos-v11-latin/tinos-v11-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+  font-family: "Caveat Brush";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Caveat Brush"), local("CaveatBrush-Regular"),
+    url("../fonts/caveat-brush-v3-latin/caveat-brush-v3-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url("../fonts/caveat-brush-v3-latin/caveat-brush-v3-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* Inhalt */
+
+body {
+  /* Hyphens bzw. Silbentrennung */
+  hyphens: auto;
+  -moz-hyphens: auto;
+  -o-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  margin: 0;
+  position: fixed;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+}
+
+a:link,
+.pointer {
+  text-decoration: none;
+  color: #991b33;
+  cursor: pointer;
+}
+
+a:visited {
+  color: #991b33;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #e53f5f;
+}
+
+/*Schwraze Farbe für Links, die nicht hervorgehoben werden.*/
+a.hinweis:link {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+a.hinweis:visited {
+  color: black;
+}
+
+a.hinweis:hover {
+  text-decoration: none;
+  color: #e53f5f;
+}
+
+/*WeißeFarbe für Links, die nicht hervorgehoben werden.*/
+
+a.hinweis2:link {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+a.hinweis2:visited {
+  color: white;
+}
+
+a.hinweis2:hover {
+  text-decoration: none;
+  color: #e53f5f;
+}
+
+li.hideListingPoints {
+  list-style-type: none;
+}
+
+/* Play Button auf Smartphones wird hiermit nicht mehr angezeigt */
+/*video::-webkit-media-controls-start-playback-button {
+  display: none;
+}
+*/
+
+.video_background {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.content {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* -------------------------------------------- */
+/*                    Index                     */
+/* -------------------------------------------- */
+
+#title_brillianIDEAS {
+  height: 100%;
+  display: flex;
+  font-family: "Caveat Brush";
+  color: #991b33;
+  font-size: 7vw;
+  align-items: center;
+  justify-content: center;
+}
+
+#start_bg_ltr {
+  position: fixed;
+  top: 40%;
+  width: 50vw;
+  transform: translateY(-50%);
+  max-height: 66vh;
+}
+
+#start_bg_rtl {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: initial;
+  max-width: 75vw;
+}
+
+#stoerer {
+  width: 15%;
+  top: 6%;
+  right: 2%;
+  position: fixed;
+}
+
+#lifebelt3 {
+  width: 15%;
+  right: 2%;
+  transform: scale(0.5);
+  position: fixed;
+}
+
+@media screen and (max-width: 787px) {
+  #lifebelt3 {
+    top: -10%;
+    display: none;
+  }
+}
+
+@media screen and (min-width: 788px) {
+  #lifebelt3 {
+    top: -8%;
+    display: block;
+  }
+}
+
+/* #lifebelt {
+  height: 18%;
+  top: -25%;
+  top: 25%;
+  left: 39%;
+  position: fixed;
+  display: none;
+  -webkit-transition-duration: 2s;
+} */
+/* -------------------------------------------- */
+/*                 Curriculum                   */
+/* -------------------------------------------- */
+
+/* Diese Klasse legt die Eigenschaften der Wortwolken in der 1. und 2. Ebene fest */
+/* em is used to  */
+
+.modul {
+  font-size: 170%;
+  color: white;
+  font-family: "Caveat Brush";
+  text-align: center;
+}
+
+/* Diese klasse erweitert die Klasse 'modul' um Eigenschaften, die eintreten wenn man mit der Maus über die Objekte fährt */
+.modul:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  color: #e53f5f;
+}
+
+/* Diese Klasse legt das 'Raster' fest, auf dem in jeder Ansicht die Objekte angeordnet werden können */
+.gridlayout {
+  display: none;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: repeat(12, 1fr);
+  grid-template-columns: repeat(14, 1fr);
+}
+
+/* Diese nachfolgengedn zwei Klassen legen die Eigenschaften des Bildes / der umschließenden Box des Tintenfischarms in der linken oberen Ecke fest */
+.tintenfischarm {
+  grid-column: 1 / 8;
+  grid-row: 1 / 4;
+  text-align: left;
+  height: 100%;
+  width: 100%;
+  /* transform: rotate(-90deg) */
+}
+
+.tintenfischarm img {
+  width: 25%;
+  height: auto;
+}
+
+/* Diese Klasse legt die Grundeigenschaften des Überschriftenfeldes in der rechten, oberen Ecke fest. */
+.ueberschriftenfeld {
+  /* Hier wird die Position des Überschriftenfeldes festgelegt: Die Felder der Spalten 2 bis 14 und der Reihen 1 bis 3 des Gridlayouts. 
+    Dabei werden die jeweiligen 'Trennlinien' als Start- bzw. Endpunkte angegeben, nicht die Nr. der Reihe / Spalte als solche. */
+  grid-column: 2 / 15;
+  grid-row: 1 / 4;
+  text-align: right;
+  padding-right: 2.5%;
+  list-style: none;
+  font-family: "Caveat Brush";
+  color: #991b33;
+}
+
+/* class for headings */
+span.ueberschrift {
+  color: #991b33 !important;
+  text-decoration: none;
+  /* target: blank; */
+}
+
+a.ueberschrift {
+  color: #991b33 !important;
+  text-decoration: none;
+  /* target: blank; */
+}
+
+/* Die 1. Überschrift hat die Schriftgröße 2,5 em. */
+.ueberschriftenfeld li:nth-child(1n) {
+  font-size: 230%;
+}
+
+/* Die 2. Überschrift hat die Schriftgröße 2,1 em.  */
+.ueberschriftenfeld li:nth-child(2n) {
+  font-size: 200%;
+}
+
+/* Die 3. Überschrift hat die Schriftgröße 1,8 em. */
+.ueberschriftenfeld li:nth-child(3n) {
+  font-size: 170%;
+}
+
+/* Hier wird der Style festgelegt, die die Überschriften annehmen wenn man mit der Maus über sie fährt. */
+.ueberschriftenfeld li:hover {
+  cursor: pointer;
+}
+
+/* Hier wird festgelegt, dass ein '> ' vor eine Überschrift steht, wenn man mit der Maus über sie fährt. */
+.ueberschriftenfeld li:hover::before {
+  content: "> ";
+  /* color: '#991b33' !important; */
+}
+
+.ueberschriftenfeld li::before {
+  content: "> ";
+}
+
+/* Hier wird der Style festgelegt, den die Textabschnitte auf der rechten Seite der Modulbeschreibung haben. */
+.modulbeschreibung {
+  margin-top: 20%;
+  grid-column: 10 / 15;
+  grid-row: 3 / 13;
+  padding-right: 5%;
+  font-family: Lato;
+  color: white;
+  overflow: hidden;
+  overflow-y: auto;
+  font-size: 1em;
+  hyphens: auto;
+}
+
+span.quellen {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Hier wird der Style festgelegt, den die Aufzählung der Moocs auf der linken Seite der Modulbeschreibung hat. */
+.moocs {
+  grid-column: 1 / 10;
+  grid-row: 3 / 13;
+  list-style: none;
+  font-family: Lato;
+  overflow: hidden;
+  overflow-y: auto;
+  clear: both;
+  color: white;
+  font-size: 1em;
+  hyphens: auto;
+  padding-bottom: 8rem;
+}
+
+.curriculumlink {
+  position: relative;
+  top: 50px;
+  grid-column: 2 / 15;
+  grid-row: 1 / 4;
+  text-align: right;
+  padding-right: 2.5%;
+  padding-top: 3%;
+  list-style: none;
+  font-family: "Caveat Brush";
+  color: #991b33 !important;
+  text-decoration: none;
+  font-size: 1.5em;
+  /* target: blank; */
+}
+
+/* Hier wird der Style der Symbolbilder in der Aufzählung der Moocs festgelegt. */
+.moocs img {
+  float: left;
+  padding-right: 1%;
+  width: 12%;
+  height: auto;
+}
+
+/* Hier wird die Groesse des Quiz Icon in der Mooc Aufzählung auf ca. 2 Zeilen verkleinert*/
+.moocs .iconGroesse {
+  width: 3.4rem;
+}
+
+/* Hier wird festgelegt, die Bilder alternierend auf der linken und auf der rechten Seite der List Items in der Liste der Moocs angezeigt werden. */
+.moocs li:nth-of-type(even) img {
+  float: right;
+  padding-left: 1%;
+}
+
+/* Hier werdern besondere Styles der List Items in der Liste der Moocs festgelegt. */
+.moocs li {
+  clear: both;
+  overflow: hidden;
+  margin: 0.05%;
+}
+
+/* Hier wird der Style eines jeden zweiten Links in jedem List Item festgelegt. Dies ist der 'Name' des Moocs. */
+.moocs li a {
+  color: #e53f5f;
+  font-family: "Caveat Brush";
+  text-decoration: none;
+}
+
+/* Hier wird festgelegt, dass List Items in der Liste der Ziele des Moduls in einer Reihe angezeigt werden. */
+.ziele li {
+  display: inline;
+}
+
+/* Hier wird festgelegt, dass zwischen jedem List Item ein trennender Bindestrich eingeführt wird. */
+.ziele li:not(:first-child):before {
+  content: "- ";
+}
+
+/* Hier wird festgelegt dass Quelleneinträge keine Spiegelpunkte haben. */
+.quellen {
+  list-style: none;
+}
+
+/* Hier wird festgelegt, dass jeder ungerade Quelleneintrag einen grauen Hintergrund hat. */
+.quellen li:nth-of-type(odd) {
+  list-style: none;
+  color: rgba(255, 255, 255, 0.8);
+  /* background-color: rgba(255, 255, 255, .5); */
+}
+
+/* Hier wird festgelegt, dass jeder gerade Quelleneintrag einen grauen Hintergrund hat. */
+.quellen li:nth-of-type(even) {
+  list-style: none;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  /* background-color: rgba(255, 255, 255, 0.2); */
+}
+
+/* -------------------------------------------- */
+/*                 Curriculum                   */
+/* -------------------------------------------- */
+
+.contentgrid {
+  width: 90%;
+  height: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+  /* middle level grid */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 30px 1fr 1fr 30px;
+  grid-template-areas:
+    "title title "
+    "axislabeltop axislabeltop"
+    "content-1 content-2"
+    "content-3 content-4"
+    "axislabelbottom axislabelbottom";
+}
+
+/* middle level grid classes */
+.title {
+  grid-area: title;
+}
+
+.content-1 {
+  grid-area: content-1;
+  /* grid in grid */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  /* coordinate-grid line */
+  border-right: 1px solid #991b33;
+}
+
+.content-2 {
+  grid-area: content-2;
+  /* grid in grid */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.content-3 {
+  grid-area: content-3;
+  /* grid in grid */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  /* coordinate-grid lines */
+  border-top: 1px solid #991b33;
+  border-right: 1px solid #991b33;
+}
+
+.content-4 {
+  grid-area: content-4;
+  /* grid in grid */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  /* coordinate-grid lines */
+  border-top: 1px solid #991b33;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.axislabeltop {
+  grid-area: axislabeltop;
+  text-align: center;
+}
+
+.axislabelbottom {
+  grid-area: axislabelbottom;
+  text-align: center;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 2;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  text-align: center;
+  /*Center the Modal Box*/
+  color: white;
+}
+
+@media (max-height: 800px) {
+
+  .modal-content,
+  .modal-content2 {
+    max-height: 60%;
+  }
+}
+
+@media (min-height: 801px) {
+
+  .modal-content,
+  .modal-content2 {
+    max-height: 80%;
+    /*Important for overflow: scroll*/
+  }
+}
+
+/* Modal Content/Box */
+.modal-content,
+.modal-content2 {
+  background-color: #fefefe;
+  font-family: Lato;
+  margin-top: 4.5em;
+  /* 15% from the top and centered */
+  padding: 20px;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+  text-align: left;
+  /*reset text-align: center from .model*/
+  display: inline-block;
+  /*Wrap Modal Content*/
+  position: fixed;
+  left: 8%;
+  overflow: auto;
+  hyphens: auto;
+  color: black;
+  border-radius: 15px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  margin-top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#titletext {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 4vmax;
+  color: #991b33;
+  font-family: "Caveat Brush";
+  position: relative;
+  left: -15px;
+  top: -58px;
+  display: inline-block;
+}
+
+/* tentacle at top of page */
+#tentacle_img_large {
+  border-width: 0px;
+  width: auto;
+  height: 125%;
+  position: relative;
+  top: -20px;
+}
+
+/* tentacle at bottom of page */
+#tentacle_img_small {
+  border-width: 0px;
+  position: relative;
+  left: 100px;
+  top: 2px;
+  width: 48px;
+  height: 48px;
+}
+
+/* class for axis labels */
+.label {
+  border-width: 0px;
+  position: relative;
+  width: auto;
+  height: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.2rem;
+  color: #991b33;
+  font-family: "Caveat Brush";
+}
+
+.margin_word {
+  margin-top: 10px;
+}
+
+/* axis labels */
+#informell {
+  text-align: right;
+  grid-row: 1/2;
+  grid-column: 3/4;
+}
+
+#formell {
+  text-align: left;
+}
+
+#kollaborativ {
+  vertical-align: bottom;
+}
+
+/* class for learning cards */
+.type_learning {
+  white-space: nowrap;
+  line-height: 1;
+  position: relative;
+  text-align: center;
+  font-size: 1.6rem;
+  display: inline;
+  font-family: "Caveat Brush";
+  color: white;
+  /* animation-name: pulse;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease; */
+}
+
+.type_learning:hover {
+  color: #991b33;
+  /*font-size: 1.4rem;*/
+  transform: scale(1.1, 1.1);
+  cursor: pointer;
+}
+
+/* learning cards */
+#interaktive_whiteboards {
+  grid-row: 1/2;
+  grid-column: 3/4;
+  align-self: center;
+  text-align: center;
+  justify-self: left;
+}
+
+#virtual_classrooms {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  align-self: center;
+  text-align: center;
+  justify-self: left;
+}
+
+#blended_learning {
+  grid-row: 3/4;
+  grid-column: 1/2;
+  align-self: center;
+  text-align: center;
+  justify-self: center;
+}
+
+#planspiele {
+  grid-row: 2/3;
+  grid-column: 3/4;
+  align-self: end;
+  text-align: right;
+  justify-self: center;
+}
+
+#serious_games {
+  grid-row: 3/4;
+  grid-column: 2/3;
+  align-self: center;
+  text-align: center;
+  justify-self: right;
+}
+
+#virtual_3d {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  align-self: start;
+  text-align: center;
+  justify-self: center;
+}
+
+#moocs {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  align-self: end;
+  text-align: center;
+  justify-self: left;
+}
+
+#chat {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  align-self: start;
+  text-align: center;
+  justify-self: left;
+}
+
+#foren {
+  grid-row: 2/3;
+  grid-column: 2/4;
+  align-self: start;
+  text-align: center;
+  justify-self: center;
+}
+
+#social_networks {
+  grid-row: 2/3;
+  grid-column: 3/4;
+  align-self: center;
+  text-align: center;
+  justify-self: right;
+}
+
+#microblogging_twitter {
+  grid-row: 3/4;
+  grid-column: 2/4;
+  align-self: start;
+  text-align: center;
+  justify-self: center;
+}
+
+#webblogs {
+  grid-row: 3/4;
+  grid-column: 1/2;
+  align-self: center;
+  text-align: center;
+  justify-self: center;
+}
+
+#lerntagebuecher {
+  grid-row: 3/4;
+  grid-column: 2/3;
+  align-self: end;
+  text-align: center;
+  justify-self: left;
+}
+
+#wiki {
+  grid-row: 1/2;
+  grid-column: 3/4;
+  align-self: center;
+  text-align: center;
+  justify-self: left;
+}
+
+#augmented_reality {
+  grid-row: 2/3;
+  grid-column: 3/4;
+  align-self: end;
+  text-align: center;
+  justify-self: left;
+}
+
+#learning_demand {
+  grid-row: 3/4;
+  grid-column: 2/3;
+  align-self: center;
+  text-align: center;
+  justify-self: right;
+}
+
+#lernfilme {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  align-self: center;
+  text-align: center;
+  justify-self: center;
+}
+
+#simulationen {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  align-self: start;
+  text-align: center;
+  justify-self: center;
+}
+
+#e_books {
+  grid-row: 3/4;
+  grid-column: 1/2;
+  align-self: start;
+  text-align: center;
+  justify-self: right;
+}
+
+#spiel {
+  grid-row: 1/2;
+  grid-column: 3/4;
+  align-self: center;
+  text-align: left;
+  justify-self: left;
+}
+
+#cbtwbt {
+  grid-row: 2/3;
+  grid-column: 1/3;
+  align-self: end;
+  text-align: center;
+  justify-self: center;
+}
+
+.modal_picture {
+  width: 12vw;
+  height: auto;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  float: left;
+}
+
+.modal_picture_small_size {
+  width: 12vw;
+  height: auto;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.modal_picture_middle_size {
+  width: 12vw;
+  height: auto;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.row_wrapper {
+  display: inline-block;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td:nth-child(1) {
+  width: 15%;
+}
+
+td:nth-child(2) {
+  width: 35%;
+}
+
+td:nth-child(3) {
+  width: 15%;
+}
+
+td:nth-child(4) {
+  width: 35%;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* -------------------------------------------- */
+/*                 Impressum                    */
+/* -------------------------------------------- */
+
+#impressum {
+  padding: 0 10%;
+  width: auto;
+  height: 100%;
+  overflow: auto;
+  font-family: Tinos;
+}
+
+#copyright>li {
+  float: left;
+  text-align: center;
+  list-style: none;
+}
+
+#impressum>ul {
+  padding: 0;
+  list-style: none;
+}
+
+#impressum>#copyright {
+  padding: 0 0 20px 0;
+}
+
+#impressum>ul>li>img,
+#impressum>ul>li>video {
+  width: 100%;
+}
+
+#impressum ul>li:nth-child(odd) {
+  cursor: pointer;
+}
+
+#impressum>hr {
+  height: 4px;
+  border-width: 0;
+  background-color: #991b33;
+}
+
+/* Hier wird der Style des Dualen Partner Bildes festgelegt. */
+.Apropos img {
+  float: right;
+  padding-right: 1%;
+  padding-left: 1%;
+  width: 5%;
+  height: auto;
+}
+
+/* Höhe des Absatzes in der Liste angepasst. */
+.Apropos li {
+  padding-bottom: 1%;
+}

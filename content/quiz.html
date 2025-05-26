@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<title>Wie dual bin ich?</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="shortcut icon" href="../img/favicon_quiz.ico" type="image/ico" />
+	<link rel="stylesheet" type="text/css" href="../css/quiz.css" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel="stylesheet" href="../css/fonts.css"/>
+	<script src="../js/quiz.js"></script>
+	<script src="../js/soundeffects.js"></script>
+	<!-- Bubble Background Component -->
+	<script
+	type="module"
+	src="../components/bubbleBackground/bubbleBackground.js"
+></script>
+<link
+	rel="stylesheet"
+	href="../components/bubbleBackground/bubbleBackground.css"
+/>
+</head>
+
+<body style="position: unset;">
+
+  <body>
+    <bubble-background></bubble-background>
+
+	<div id="video_pattern"></div>
+
+	<ul class="ueberschriftenfeld">
+		<li style="padding-top: 2%;font-size: 1em;"><a style="padding: 0% !important;" class="curriculumlink" href="https://www.dhbw.de/informationen/duale-partner.html" target="_blank"><!--<span class="ueberschrift" onclick="toggleVisible('partner')">-->Duale Partner<!--</span>--></a></li>
+		<!-- <li style="display: none; float: right; font-size: 1rem; padding: 5px" id="partner"><a style="padding: 0% !important;" class="curriculumlink" href="#" target="_blank">Duale Partner Seite</a></li> -->
+
+		<!--<li style="padding-top: 2%;font-size: 1.5em;"><a href="www.dhbw.de/informationen/duale-partner.html" target="_blank"><span class="ueberschrift" onclick="toggleVisible('partner')">Duale Partner</span></a></li>
+		<li style="display: none; float: right; font-size: 1rem; padding: 5px" id="partner"><a style="padding: 0% !important;" class="curriculumlink" href="https://www.dhbw.de/informationen/duale-partner.html" target="_blank"></a></li>-->
+	</ul>
+	<ul>
+		<li class="hideListingPoints"><h1 style="color:#ffffff;">Wie dual bin ich?</h1></li>
+	</ul>
+
+	<div>
+		<ul>
+			<li class="hideListingPoints"><h2 style="color:#ffffff;">Was sind meine Interessen?</h2></li>
+		</ul>
+			<ul>
+				<li class="hideListingPoints"><label id="correctString1" class="container padding-l-50">Ich möchte später lehrend oder forschend tätig sein.
+					<input class="container" type="checkbox" name="q1" value="-1" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50 ">Ich würde meine Arbeit gerne mit Sport verbinden.
+					<input class="container" type="checkbox" name="q1" value="1" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50">Ich interessiere mich für wirtschaftliche Fragestellungen.
+					<input class="container" type="checkbox" name="q1" value="2" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50">Ich bin sprachaffin.
+					<input class="container" type="checkbox" name="q1" value="0" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50">Ich möchte später gerne mit Kindern arbeiten.
+					<input class="container" type="checkbox" name="q1" value="-2" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50">Ich interessiere mich für technische Fragestellungen.
+					<input class="container" type="checkbox" name="q1" value="2" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50">Ich weiß schon, in welcher Branche ich arbeiten möchte.
+					<input class="container" type="checkbox" name="q1" value="1" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+			</ul>
+	</div>
+
+	<div>
+		<ul>
+			<li class="hideListingPoints"><h2 style="color:#ffffff;">Wie finanziere ich mein Studium?</h2></li>
+		</ul>
+			<ul>
+				<li class="hideListingPoints"><label id="correctString2" class="container padding-l-50">Ich muss/möchte mein Studium selbst finanzieren.
+					<input class="container" type="checkbox" name="q2" value="2" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50">Ich habe Lust verschiedene &raquo;Studentenjobs&laquo; auszuprobieren.
+					<input class="container padding-l-50" type="checkbox" name="q2" value="-1" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50">Ich möchte nach dem Studium bessere Einstiegschancen haben.
+					<input class="container" type="checkbox" name="q2" value="2" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50">Ich möchte über die drei Jahre durchgängig durch mein Ausbildungsunternehmen abgesichert sein.
+					<input class="container" type="checkbox" name="q2" value="2" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+			</ul>
+	</div>
+
+	<div>
+		<ul>
+			<li class="hideListingPoints"><h2 style="color:#ffffff;">Bin ich bereit für ein duales Studium?</h2></li>
+		</ul>
+			<ul>
+				<li class="hideListingPoints"><label id="correctString3" class="container padding-l-50">Ich bin bereit, Verantwortung im Berufsleben zu übernehmen.
+					<input class="container" type="checkbox" name="q3" value="2" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50">Ich habe Lust, an verschiedenen Orten zu arbeiten.
+					<input class="container" type="checkbox" name="q3" value="2" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50">Ich brauche längere Erholungsphasen.
+					<input class="container" type="checkbox" name="q3" value="-2" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50">Ich will gefordert und gefördert werden.
+					<input class="container" type="checkbox" name="q3" value="1" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50">Ich möchte meine Leistungsgrenzen erforschen.
+					<input class="container" type="checkbox" name="q3" value="1" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50">Ich möchte die Freiheit haben, meinen Studienablauf selbst zu organisieren.
+					<input class="container" type="checkbox" name="q3" value="-1" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+				<li class="hideListingPoints"><label class="container padding-l-50">Ich studiere bereits, möchte allerdings mehr Bezug zur Praxis haben.
+					<input class="container" type="checkbox" name="q3" value="20" onclick="playSoundeffect(single_bubble_audio)">
+					<span class="checkmark"></span>
+				</label></li>
+			</ul>
+	</div>
+
+	<div class="submitter">
+		<input class="quizSubmit" id="submitButton" onClick="submitQuiz()" type="submit" value="Weiter zur Auswertung!" />
+	</div>
+
+<!-- </body> -->
+	<div id="postsubmit">
+		<img alt="Krake an grüner Ampel" class="tl hidden" height="443" id="TrafficLightGreen" src="../img/green.png" width="320">
+		<img alt="Krake an gelber Ampel" class="tl hidden" height="443" id="TrafficLightAmber" src="../img/amber.png" width="320">
+		<img alt="Krake an roter Ampel" class="tl hidden" height="443" id="TrafficLightRed" src="../img/red.png" width="320">
+
+		<!--show only wrong answers on submit-->
+		<div class="textboxpostsubmit">
+			<div class="quizAnswers" id="correctAnswer1"> </div>
+			<div class="quizAnswers" id="correctAnswer2"></div>
+			<div class="quizAnswers" id="correctAnswer3"></div>
+
+			<!--show score upon submit-->
+			<div>
+				<!--<h2 class="quizScore" id="userScore"></h2>--!>
+			</div>
+
+		</div>
+	</div>
+	<!--Sitemap-->
+
+	<div>
+		<b>März 2018, WIMBIT15C im Rahmen des <a href="https://www.brillianideas.com/" target="_blank">brillian<span style="font-size: 16.371px">IDEAS</span></a> IT-Projektes</b>
+	</div>
+
+	<script>
+		/** Diese Funktion wird genutzt, um einzelne Elemente sichtbar oder unscihtbar zu machen (die Sichtbarkeit umzuschalten).
+		 Dabei wird nur ein Parameter namens visibility übergeben, der als Wert die ID des Elements zu enthalten hat, bei
+		 welchem die Sichtbarkeit umgeschaltet werden soll. **/
+		function toggleVisible(visibility) {
+			var x = document.getElementById(visibility);
+			if (x.style.display != "none") {
+				x.style.display = "none";
+			} else {
+				x.style.display = "inline-block";
+			}
+		}
+	</script>
+</body>
+</html>

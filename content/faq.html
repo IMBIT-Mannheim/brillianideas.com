@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <title>FAQ-Videos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href="../img/favicon_quiz.ico" type="image/ico" />
+    <link rel="stylesheet" type="text/css" href="../css/quiz.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/fonts.css" />
+    <link rel="stylesheet" href="../css/splide.min.css" />
+    <link rel="stylesheet" href="../css/splide-extension-video.min.css" />
+    <style>
+      #main-container {
+        margin-left: 20vw;
+        margin-right: 20vw;
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+    <!-- Bubble Background Component -->
+    <script
+      type="module"
+      src="../components/bubbleBackground/bubbleBackground.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="../components/bubbleBackground/bubbleBackground.css"
+    />
+  </head>
+
+  <body>
+    <bubble-background></bubble-background>
+
+    <div id="video_pattern"></div>
+
+    <ul>
+      <li class="hideListingPoints">
+        <h1 style="color: #ffffff">FAQ-Videos</h1>
+      </li>
+    </ul>
+
+    <div id="main-container">
+      <div class="splide">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li
+              class="splide__slide"
+              data-splide-youtube="https://www.youtube.com/watch?v=1fJ0B6th9MQ"
+            >
+              <img
+                src="https://img.youtube.com/vi/1fJ0B6th9MQ/maxresdefault.jpg"
+                style="width: 100%"
+              />
+            </li>
+            <li
+              class="splide__slide"
+              data-splide-youtube="https://www.youtube.com/watch?v=XVQu5q4LR9c"
+            >
+              <img
+                src="https://img.youtube.com/vi/XVQu5q4LR9c/maxresdefault.jpg"
+                style="width: 100%"
+              />
+            </li>
+            <li
+              class="splide__slide"
+              data-splide-youtube="https://www.youtube.com/watch?v=L8OxKfVSq6w"
+            >
+              <img
+                src="https://img.youtube.com/vi/L8OxKfVSq6w/maxresdefault.jpg"
+                style="width: 100%"
+              />
+            </li>
+            <li
+              class="splide__slide"
+              data-splide-youtube="https://www.youtube.com/watch?v=QVleLynnPKM"
+            >
+              <img
+                src="https://img.youtube.com/vi/QVleLynnPKM/maxresdefault.jpg"
+                style="width: 100%"
+              />
+            </li>
+            <li
+              class="splide__slide"
+              data-splide-youtube="https://www.youtube.com/watch?v=M79h-oIaKF8"
+            >
+              <img
+                src="https://img.youtube.com/vi/M79h-oIaKF8/maxresdefault.jpg"
+                style="width: 100%"
+              />
+            </li>
+            <li
+              class="splide__slide"
+              data-splide-youtube="https://www.youtube.com/watch?v=rFfRiknM-X4"
+            >
+              <img
+                src="https://img.youtube.com/vi/rFfRiknM-X4/maxresdefault.jpg"
+                style="width: 100%"
+              />
+            </li>
+            <li
+              class="splide__slide"
+              data-splide-youtube="https://www.youtube.com/watch?v=2aaUlh9vvbo"
+            >
+              <img
+                src="https://img.youtube.com/vi/2aaUlh9vvbo/maxresdefault.jpg"
+                style="width: 100%"
+              />
+            </li>
+            <li
+              class="splide__slide"
+              data-splide-youtube="https://www.youtube.com/watch?v=be6nQaTCl8Q"
+            >
+              <img
+                src="https://img.youtube.com/vi/be6nQaTCl8Q/maxresdefault.jpg"
+                style="width: 100%"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="../js/splide.min.js"></script>
+    <script src="../js/splide-extension-video.min.js"></script>
+    <script>
+      new Splide('.splide', {
+        width: '60vw',
+        loop: true,
+        autoplay: true,
+      }).mount(window.splide.Extensions);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,152 @@
+html {
+  height: 100%;
+  /*both setting are needed to avoid 'bouncing' effect when reaching end of scrollable content*/
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  /*both setting are needed to avoid 'bouncing' effect when reaching end of scrollable content*/
+  overflow: auto;
+}
+
+#audio {
+  text-align: center;
+}
+
+ul.podcastList {
+  /* Disable list indention */
+  padding-inline-start: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1vh 0;
+}
+
+li.podcast {
+  display: inline-block;
+  padding: 1vh 1vw;
+  background-color: rgb(21, 200, 200);
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 0.2rem;
+  box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 500px) {
+  li.podcast {
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+  }
+}
+
+img.kursbild {
+  margin-top: 0.5rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.7);
+}
+
+h2.kursTitel {
+  margin-bottom: 0.01em;
+}
+
+#podcasts {
+  grid-row: 2/3;
+  grid-column: 3/4;
+  align-self: start;
+  text-align: center;
+  justify-self: center;
+}
+
+.onoffswitch {
+  position: relative;
+  width: 45px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+  display: none;
+}
+
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  height: 20px;
+  padding: 0;
+  line-height: 20px;
+  border: 2px solid #e3e3e3;
+  border-radius: 20px;
+  background-color: #949494;
+  transition: background-color 0.3s ease-in;
+}
+
+.onoffswitch-label:before {
+  content: "";
+  display: block;
+  width: 20px;
+  margin: 0px;
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 23px;
+  border: 2px solid #e3e3e3;
+  border-radius: 20px;
+  transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label {
+  background-color: #991b33;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label,
+.onoffswitch-checkbox:checked+.onoffswitch-label:before {
+  border-color: #991b33;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label:before {
+  right: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: #991b33;
+}
+
+tr.activeShortcut {
+  color: #991b33;
+}
+
+#shortcutListe0 {
+  margin-bottom: 0.1rem;
+}
+
+#shortcutListe1,
+.shortcuts {
+  margin-top: 0.1rem;
+}
+
+th.shortcutrow1,
+td.shortcutrow1 {
+  width: 120px;
+}
+
+td.shortcutrow2,
+th.shortcutrow2 {
+  width: 300px;
+}
+
+.helpAudios {
+  margin-bottom: 8rem;
+}
+
+hr {
+  border-radius: 1rem;
+}

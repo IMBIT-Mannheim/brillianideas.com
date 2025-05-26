@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <title>Wie dual bin ich?</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta
+      name="description"
+      content="Die 'Wie Dual Bin ich?'-Seite ist ein Teil der digitale Lernplattform brillianIDEAS des IMBIT-Studiengans und bietet Informationen für Studieninteressierte."
+    />
+  <link rel="shortcut icon" href="../img/wieDual.png" type="image/ico" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/impressum.css" />
+  <link rel="stylesheet" type="text/css" href="../css/quiz.css" />
+  <link rel="stylesheet" href="../css/fonts.css" />
+  <link rel="stylesheet" href="../css/splide.min.css" />
+  <link rel="stylesheet" href="../css/splide-extension-video.min.css" />
+  <link rel="stylesheet" href="../css/lightbox.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <style>
+    h1 {
+      color: #9d0b00;
+      font-family: 'Caveat Brush';
+      font-size: 40px;
+    }
+
+    h2 {
+      color: #9d0b00;
+      font-family: 'Caveat Brush';
+      font-size: 25px;
+    }
+
+    h3 {
+      color: #9d0b00;
+      font-family: 'Caveat Brush';
+      font-size: 18px;
+    }
+
+    .correctfont {
+      font-family: 'Tinos';
+    }
+
+    body {
+      font-family: 'Tinos';
+      color: #000011;
+    }
+
+    a:link {
+      color: #fff9ee;
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    a:visited.dual {
+      color: #fff9ee;
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    a:hover.dual {
+      color: #ffe1d2;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    .unternehmen_bullet {
+      padding-bottom: 2px;
+    }
+
+    li:nth-of-type(even) img {
+      float: right;
+      padding-left: 1%;
+    }
+
+    #krakenkopf[data-v-44ec9b1c] {
+      cursor: pointer;
+      position: absolute;
+      width: 4rem;
+    }
+  </style>
+  <script>
+    // function for loading modals
+    function closeCurrentWindow() {
+      window.close();
+    }
+    let id_modal = '';
+
+    function showmodal(id) {
+      id_modal = id + '_content';
+      document.getElementById(id_modal).style.display = 'inline-block';
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    function hideModalFromSpan() {
+      document.getElementById(id_modal).style.display = 'none';
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    function hideModalFromClick() {
+      let e = window.event; //get the event which is triggered right now in the window
+
+      //e.target.id -> get the id of the object which triggered event e
+      //close the modal if this id == id_modal (everything outside the modal itself)
+      if (id_modal === e.target.id) {
+        document.getElementById(id_modal).style.display = 'none';
+      }
+    }
+
+    // Function to reveal lightbox and adding YouTube autoplay
+    function revealVideo(div, video_id, link) {
+      // console.log(video);
+      // var video = document.getElementById(video_id).src;
+      document.getElementById(video_id).src = link + '?&autoplay=1'; // adding autoplay to the URL
+      document.getElementById(div).style.display = 'block';
+    }
+
+    // Hiding the lightbox and removing YouTube autoplay
+    function hideVideo(div, video_id) {
+      let video = document.getElementById(video_id).src;
+      // removing autoplay form url
+      document.getElementById(video_id).src = video.replace(
+        '&autoplay=1',
+        ''
+      );
+      document.getElementById(div).style.display = 'none';
+    }
+  </script>
+
+  <!-- Bubble Background Component -->
+  <script type="module" src="../components/bubbleBackground/bubbleBackground.js"></script>
+  <link rel="stylesheet" href="../components/bubbleBackground/bubbleBackground.css" />
+
+  <!-- Duale Partner Component -->
+  <script type="module" src="../components/dualePartner/dualePartner.js"></script>
+</head>
+
+<body style="position: unset">
+  <bubble-background></bubble-background>
+
+  <header>
+    <img src="../img/Tintenfisch_Kopf_HOME_gedreht_ex.png" alt="Kopf der Krake" id="krakenkopf" data-v-44ec9b1c=""
+      onclick="closeCurrentWindow()" style="z-index:1;">
+      <a href="./dualerPartnerWerden.html"  class="dual" style="position: absolute; margin-left: 95%;">
+        <img src="../img/shakehands.png" alt="Logo_PartnerWerden" style="width: 40px; float:right; vertical-align: middle; margin: 10px;">
+      </a>
+  </header>
+  <div id="video_pattern"></div>
+
+  <div id="main-container" style="margin: 2em">
+    <h1 style="padding-top: 1em">Wie dual bin ich?</h1>
+    <ul>
+      <li>
+        Das duale Bachelor-Studium der DHBW verknüpft die akademische Ausbildung an der Hochschule mit Praxiseinsätzen
+        beim
+        Partnerunternehmen. Über die Studiendauer von drei Jahren wechseln sich dreimonatige Theoriephasen an der
+        Hochschule
+        mit Praxisphasen im Unternehmen ab. Die DHBW ist eine staatliche Hochschule des Landes Baden-Württemberg; weder
+        für
+        Studenten noch Unternehmen fallen Gebühren für das Bachelorstudium an. Studenten zahlen jährliche
+        Studentenwerks- und
+        geringe Verwaltungsbeiträge; sie erhalten vom Unternehmen durchgehend eine monatliche Ausbildungsvergütung.
+        Die DHBW stellt verbindliche Informationen für
+        <a href="https://www.dhbw.de/informationen/studieninteressierte" class="dual"
+          target="_blank">Studieninteressierte</a>,
+        <a href="https://www.dhbw.de/informationen/duale-partner" class="dual" target="_blank">Duale
+          Partnerunternehmen</a>,
+        <a href="https://www.dhbw.de/informationen/duale-dozenten" class="dual" target="_blank">Duale Dozenten</a>
+        und zu den für das Studium
+        <a href="https://www.dhbw.de/informationen/studieninteressierte#c47048" class="dual" target="_blank">notwendigen
+          Schul- bzw.
+          Berufsabschlüssen</a> zur Verfügung.
+      </li>
+      <li style="height: 6em">
+        <a style="float: left" href="quiz.html" target="_blank" rel="noreferrer"><img src="../img/wieDual.png"
+            alt="Logo_Dual" style="width: 90px" /></a>
+        <h2 style="padding-top: 1em">
+          <a href="quiz.html" class="dual">Selbsttest: Passt das duale Studium zu mir?</a>
+        </h2>
+      </li>
+      <li >
+        <a href="../content/studWechsler.html"><img src="../img/thumbnail_studwechsler.webp" alt="Logo_Studienwechsler" style="
+                width: 140px;
+                height: auto;
+                padding: 0 2em 0 0;
+                float: left;
+              " /></a>
+        <h2>
+          <a href="../content/studWechsler.html" class="dual">
+            Infos für Studienwechsler
+          </a>
+        </h2>
+        Du bist ein Studienwechsler und willst wissen, welche Vorteile dir ein
+        DHBW Studium bietet? Dann ist dieses Video perfekt für dich! Es zeigt
+        dir genau die Dinge, die du brauchst!
+      </li>
+
+      <h1 style="padding-top: 1em">Podcasts zum Studium</h1>
+      <ul class="podcastList">
+        <li id="podcast2" class="podcast" onclick="showmodal(this.id)">
+          Einstieg in das Studium
+        </li>
+        <li id="podcast3" class="podcast" onclick="showmodal(this.id)">
+          Welcome to Mannheim
+        </li>
+        <li id="podcast5" class="podcast" onclick="showmodal(this.id)">
+          Must-dos
+        </li>
+        <li id="podcast4" class="podcast" onclick="showmodal(this.id)">
+          Besondere Projekte
+        </li>
+        <li id="podcast7" class="podcast" onclick="showmodal(this.id)">
+          Auslandspraxisphasen
+        </li>
+        <li id="podcast1" class="podcast" onclick="showmodal(this.id)">
+          Bachelorarbeit
+        </li>
+        <li id="studienwechsler" class="podcast" onclick="showmodal(this.id)">
+          Studienwechsler
+        </li>
+        <li id="podcast6" class="podcast" onclick="showmodal(this.id)">
+          Studiengangsübersicht
+        </li>
+        <li id="podcast8" class="podcast" onclick="showmodal(this.id)">
+          Externe Angebote
+        </li>
+      </ul>
+
+      <h1 style="padding-top: 1em">Häufige Fragen zum IMBIT-Studium</h1>
+      <li>
+        <ul class="podcastList">
+          <li class="podcast"
+            onclick="revealVideo('video','youtube','https://www.youtube-nocookie.com/embed/1fJ0B6th9MQ')">
+            Vorkenntnisse
+          </li>
+          <li class="podcast"
+            onclick="revealVideo('video','youtube','https://www.youtube-nocookie.com/embed/XVQu5q4LR9c')">
+            Partnerunternehmen und Hochschule
+          </li>
+          <li class="podcast"
+            onclick="revealVideo('video','youtube','https://www.youtube-nocookie.com/embed/L8OxKfVSq6w')">
+            Fächer und Module
+          </li>
+          <li class="podcast"
+            onclick="revealVideo('video','youtube','https://www.youtube-nocookie.com/embed/QVleLynnPKM')">
+            Zeitaufwand
+          </li>
+          <li class="podcast"
+            onclick="revealVideo('video','youtube','https://www.youtube-nocookie.com/embed/M79h-oIaKF8')">
+            International
+          </li>
+          <li class="podcast"
+            onclick="revealVideo('video','youtube','https://www.youtube-nocookie.com/embed/rFfRiknM-X4')">
+            Vorteile
+          </li>
+          <li class="podcast"
+            onclick="revealVideo('video','youtube','https://www.youtube-nocookie.com/embed/2aaUlh9vvbo')">
+            Inhalte der Praxisphasen
+          </li>
+          <li class="podcast"
+            onclick="revealVideo('video','youtube','https://www.youtube-nocookie.com/embed/be6nQaTCl8Q')">
+            Zeit nach dem Studium
+          </li>
+        </ul>
+
+        <h1 style="padding-top: 1em">Aktuelle IMBIT-Partnerunternehmen</h1>
+        <div style="overflow-x : scroll;">
+          <duale-partner></duale-partner>
+        </div>
+        
+    </ul>
+  </div>
+
+  <div id="video" class="lightbox" onclick="hideVideo('video','youtube')">
+    <div class="lightbox-container">
+      <div class="lightbox-content">
+        <button onclick="hideVideo('video','youtube')" class="lightbox-close">
+          Close | ✕
+        </button>
+        <div class="video-container">
+          <iframe id="youtube" width="960" height="540" src="" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="podcast1_content" onclick="hideModalFromClick()" style="display: none">
+    <!-- Modal content -->
+    <div class="modal-wrapper">
+      <div class="modal-content2 correctfont">
+        <span class="close" onclick="hideModalFromSpan()">&times;</span>
+        <h2>Bachelorarbeit</h2>
+        <p>
+          Hi, na! Herzlich willkommen zu unserem brandneuen IMBIT-Podcast
+          :-) In der ersten Folge sprechen Gerrit, Thiago und Tom über die
+          jüngst abgegebene Bachelorarbeit und wie es ihnen dabei so erging.
+          Nachdem ausführlichst die jeweiligen Themen analysiert wurden und
+          die Redner aus ihrem Corporate Business Talk rausgekommen sind,
+          werden die wirklich wichtigen Themen besprochen: Konnten sie Work
+          und Bachelorarbeit richtig balancen? Wie viel Aufwand war
+          eigentlich die Literaturanalyse? Wie plant man am besten seine
+          verschiedenen Etappen? Welche Tipps haben die selbsternannten
+          Bachelorarbeit-Profis für euch? Und wie viele Tritte in den
+          Allerwertesten darf man eigentlich bekommen? <br />
+          Das und mehr in dieser Folge, ab jetzt jede Woche für euch. Hier
+          auf brillianIDEAS.
+        </p>
+        <p id="audio">
+          <audio controls preload="none">
+            <source src="../audio/IMBIT-Podcast-Episode01.mp3" type="audio/mp3" />
+            Your browser does not support the audio element.
+          </audio>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="podcast2_content" onclick="hideModalFromClick()" style="display: none">
+    <!-- Modal content -->
+    <div class="modal-wrapper">
+      <div class="modal-content2 correctfont">
+        <span class="close" onclick="hideModalFromSpan()">&times;</span>
+        <h2>Einstieg in das Studium</h2>
+        <p>
+          In dieser Podcast Folge geht es um den Einstieg ins Studium. Als
+          erstes reden wir über die Anmeldung für ein Duales Studium und die
+          Wohnungssuche in Mannheim. Danach sprechen wir über wichtige
+          bürokratische Aktivitäten, die man bedenken sollte, wenn man nach
+          Mannheim kommt. Dann gehen wir auf das Intranet, die Bibliothek
+          und die Zugänge an der DHBW ein. Am Ende der Folge sprechen wir
+          dann auch noch über die unterschiedlichen Einkaufsmöglichkeiten an
+          der DHBW sowie das große Angebot an sportlichen Aktivitäten, das
+          man als Student der DHBW in Anspruch nehmen kann.
+        </p>
+        <p id="audio">
+          <audio controls preload="none">
+            <source src="../audio/IMBIT-Podcast-Episode02.mp3" type="audio/mp3" />
+            Your browser does not support the audio element.
+          </audio>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="podcast3_content" onclick="hideModalFromClick()" style="display: none">
+    <!-- Modal content -->
+    <div class="modal-wrapper">
+      <div class="modal-content2 correctfont">
+        <span class="close" onclick="hideModalFromSpan()">&times;</span>
+        <h2>Welcome to Mannheim</h2>
+        <p>
+          WELCOME TO MANNHEIM! Dies ist das Motto der heutigen Folge des
+          IMBIT Podcasts. Für alle, die neu nach Mannheim kommen oder die
+          eventuell noch Tipps von ein paar unangefochtenen Mannheim-Ultras
+          hören möchten, ist diese Folge genau das Richtige. Im Verlauf
+          dieser Folge tauschen wir Erfahrungen aus, die wir in den letzten
+          drei Jahren Studium in Mannheim gemacht haben. Als erstes sprechen
+          wir darüber, wo und wie es sich in Mannheim am besten wohnen und
+          leben lässt. Wer also nach Mannheim zieht oder innerhalb Mannheims
+          umziehen möchte sollte hier gut die Ohren spitzen! Aber auch wer
+          bereits in Mannheim eine passende Wohnung gefunden hat, sollte
+          sich diese Folge unbedingt anhören. Es werden nämlich als nächstes
+          die vermutlich qualifiziertesten Restaurant und Food Tipps
+          gegeben, welche man sich nur vorstellen kann. In diesem Zuge kommt
+          es sogar zu einer kleinen Kontroverse darüber, wo der beste Döner
+          in Mannheim zu finden ist. Wer diese Frage endgültig klären
+          möchte, kann ja die beiden genannten Kandidaten selbst probieren.
+          Abschließend geben wir noch Tipps für coole Spots, denen man in
+          Mannheim unbedingt mal einen Besuch abstatten sollte, und wo man
+          sich rumtreiben kann, wenn man in das einzigartige Mannheimer
+          Nightlife abtauchen möchte.
+        </p>
+        <p id="audio">
+          <audio controls preload="none">
+            <source src="../audio/IMBIT-Podcast-Episode03.mp3" type="audio/mp3" />
+            Your browser does not support the audio element.
+          </audio>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="podcast4_content" onclick="hideModalFromClick()" style="display: none">
+    <!-- Modal content -->
+    <div class="modal-wrapper">
+      <div class="modal-content2 correctfont">
+        <span class="close" onclick="hideModalFromSpan()">&times;</span>
+        <h2>Besondere Projekte</h2>
+        <p>
+          Hi there! In dieser Folge des IMBIT Podcasts setzen sich Felicia,
+          Vico und Gerrit zusammen um besondere Projekte und Aktivitäten,
+          die während des IMBIT Studiums stattgefunden haben, Revue
+          passieren zu lassen. Von Tipps zu den »kleinen Bachelorarbeiten«
+          PA1 und PA2, die einen während des Studiums auf die richtige
+          vorbereiten, über die Vorbereitung auf ein mehrtägiges Planspiel
+          in einem Kloster in Rheinland-Pfalz, bis hin zur Weiterentwicklung
+          der brillianIDEAS Website - auf der du ja gerade bist ;-) - gibt
+          es einiges an Impressionen und Erfahrungswerten zu hören. Die drei
+          erzählen worauf man bei den einzelnen Projekten achten sollte,
+          welche Kniffe es gibt, um sich an der ein oder anderen Stelle das
+          Leben zu erleichtern, und wie man sich erfolgreich durch das IMBIT
+          Studium manövriert.
+        </p>
+        <p id="audio">
+          <audio controls preload="none">
+            <source src="../audio/IMBIT-Podcast-Episode04.mp3" type="audio/mp3" />
+            Your browser does not support the audio element.
+          </audio>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="podcast5_content" onclick="hideModalFromClick()" style="display: none">
+    <!-- Modal content -->
+    <div class="modal-wrapper">
+      <div class="modal-content2 correctfont">
+        <span class="close" onclick="hideModalFromSpan()">&times;</span>
+        <h2>Must-dos</h2>
+        <p>
+          Hi, na! Heute geht es um die absoluten Must-dos für euer Studium
+          und das Leben in Mannheim. Dabei sprechen wir über coole
+          DHBW-Veranstaltungen fernab der Vorlesungen und Klausuren, die ihr
+          nicht verpassen dürft. Aber bekanntermaßen kommt das Vergnügen
+          erst nach der Arbeit. Auch dafür findet ihr hilfreiche Tipps und
+          Tricks, die euch bei den Vorbereitungen für Klausuren oder
+          ähnliches supporten. Egal ob sport- oder musikinteressiert, eher
+          bei gutem Kaffee chillen oder energiegeladen durch den Kletterwald
+          springen - in dieser Folge findet ihr definitiv die richtigen
+          Ideen, die ihr mit euren Freunden umsetzen MÜSST. Have fun :-)
+        </p>
+        <p id="audio">
+          <audio controls preload="none">
+            <source src="../audio/IMBIT-Podcast-Episode05.mp3" type="audio/mp3" />
+            Your browser does not support the audio element.
+          </audio>
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="modal" id="podcast6_content" onclick="hideModalFromClick()" style="display: none">
+    <!-- Modal content -->
+    <div class="modal-wrapper">
+      <div class="modal-content2 correctfont">
+        <span class="close" onclick="hideModalFromSpan()">&times;</span>
+        <h2>Studiengangsübersicht</h2>
+        <p>Hi there! Ihr fragt euch was sich hinter den NN Wahlfächern oder den Schlüsselqualifikationen im
+          Rahmenstudienplan verbirgt? In dieser Folge des IMBIT Podcasts gehen Henrike, Felicia und Thiago das IMBIT
+          Studium semesterweise durch und teilen ihre Erfahrungen, Tipps und Tricks- Fach für Fach. Sie plaudern aus dem
+          Nähkästchen und stoßen auf überraschende Unterschiede zwischen A- und B-Kurs. Am besten öffnet ihr euch beim
+          Anhören nebenher den
+          <a href="https://www.mannheim.dhbw.de/dual-studieren/bachelor/wirtschaft/wirtschaftsinformatik/imbit/studium#panel-9434-0"
+            target="_blank" rel="noreferrer" style="color: #e53f5f;">Rahmenstudienplan</a>, damit ihr gut mitkommt. Tune
+          in!
+        </p>
+        <p id="audio">
+          <audio controls preload="none">
+            <source src="../audio/IMBIT-Podcast-Episode06.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="podcast7_content" onclick="hideModalFromClick()" style="display: none">
+    <!-- Modal content -->
+    <div class="modal-wrapper">
+      <div class="modal-content2 correctfont">
+        <span class="close" onclick="hideModalFromSpan()">&times;</span>
+        <h2>Auslandspraxisphasen</h2>
+        <p>
+          Hi, na! In der aktuellen IMBIT-Podcastfolge geht es um die
+          Auslandsaufenthalte des Studiengangs. Dafür haben wir uns eine
+          Mitstreiterin eingeladen, die die meiste Erfahrung bei dem Thema
+          hat. Dabei geht es unter anderem um die Hürden bei der Suche nach
+          einer geeigneten Station innerhalb der jeweiligen Unternehmen und
+          wie viel Eigeninitiative man tatsächlich braucht, ein
+          Praxissemester im Ausland zu organisieren. Welche der besprochenen
+          Stationen der Studis war die beste? Auf welche Probleme stößt man
+          gerne im Ausland? Und ist das eigentlich überhaupt ein MUSS? Die
+          Antworten darauf und noch vieles mehr. Enjoy!
+        </p>
+        <p id="audio">
+          <audio controls preload="none">
+            <source src="../audio/IMBIT-Podcast-Episode07.mp3" type="audio/mp3" />
+            Your browser does not support the audio element.
+          </audio>
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="modal" id="podcast8_content" onclick="hideModalFromClick()" style="display: none">
+    <!-- Modal content -->
+    <div class="modal-wrapper">
+      <div class="modal-content2 correctfont">
+        <span class="close" onclick="hideModalFromSpan()">&times;</span>
+        <h2>Externe Angebote</h2>
+        <p>Hi there! Ihr habt Lust euch neben dem Studium zu engagieren und auch außerhalb der Vorlesungen coole Leute
+          kennenzulernen? In dieser Folge des IMBIT Podcasts besprechen Felicia, Hanae und Vico diverse Möglichkeiten
+          euch zu engagieren, weiterzubilden und neue Hobbys in Mannheim zu etablieren. Sie teilen ihre individuellen
+          Erfahrungen zu Chinesisch, ADA, INDIS, dem Börsenführerschein, der StuV, Sport- und Sprachangeboten der Uni
+          Mannheim, Thinc! und vielem mehr - Tune in!</p>
+        <p id="audio">
+          <audio controls preload="none">
+            <source src="../audio/IMBIT-Podcast-Episode08.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="studienwechsler_content" onclick="hideModalFromClick()" style="display: none">
+    <!-- Modal content -->
+    <div class="modal-wrapper">
+      <div class="modal-content2 correctfont">
+        <span class="close" onclick="hideModalFromSpan()">&times;</span>
+        <h2>Interview mit Studienwechsler</h2>
+        <p>Studienwechsler haben viele Gründe nicht nur den Studiengang sondern
+          auch die Hochschulart zu wechseln. In diesem Podcast wird in der Form
+          eines Interviews mit einem Studienwechsler über konkrete Gründe
+          gesprochen. Falls ihr euch damit identifizieren könnt oder nun an der
+          DHBW interessiert seid, könnt ihr auf der Webseite noch weitere
+          Informationen finden.</p>
+        <p id="audio">
+          <audio controls preload="none">
+            <source src="../audio/InterviewWieDual.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

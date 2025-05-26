@@ -1,0 +1,113 @@
+﻿body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.background_video_tab {
+  background-color: #255e62;
+}
+
+.video_background_2 {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.ueberschrift {
+  font-family: "Caveat Brush", sans-serif;
+  text-align: center;
+  color: #f1f1f1;
+  /* position: absolute; */
+  z-index: 3;
+  margin: 0px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.titel {
+  font-size: 4.5vw;
+}
+
+.sterntentakel {
+  display: none; /*war flex, führte zu doppelter tentakel*/
+  height: 20vw;
+  margin-top: -22vh;
+}
+
+/* .videobox {
+  margin-top: 1%;
+  margin-left: 20%;
+  margin-right: 15%;
+} */
+
+.center {
+  text-align: center;
+}
+
+#WPO {
+  padding-top: 4%;
+}
+
+.backtoMenu {
+  font-size: 2em;
+  padding: 12px;
+  color: #990133;
+  background: #f1f1f1;
+  border: 7px solid #000;
+  border-radius: 7px;
+  text-decoration: none;
+  margin: 10vw;
+}
+
+.backtoLernvideos {
+  font-family: "Caveat Brush", sans-serif;
+  padding: 12px;
+  color: #f1f1f1;
+  background: none;
+  border-radius: 7px;
+  text-decoration: none;
+  margin: 17vw;
+}
+@media (max-width: 375px) {
+  .backtoLernvideos,
+  .backtoLernvideos:hover {
+    font-size: 1.5em;
+  }
+  iframe {
+    height: 150px;
+  }
+}
+@media (min-width: 376px) {
+  .backtoLernvideos,
+  .backtoLernvideos:hover {
+    font-size: 2em;
+  }
+  iframe {
+    height: 493px;
+  }
+}
+
+.backtoLernvideos:hover {
+  font-family: "Caveat Brush", sans-serif;
+  padding: 5px;
+  color: #990133;
+  background: none;
+  border-radius: 7px;
+  text-decoration: none;
+  /*border: 6px solid #f1f1f1;*/
+  margin: 17vw;
+}
+
+.video_c {
+  position: fixed; /* Stay in place */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+}

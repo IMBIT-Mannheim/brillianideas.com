@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>comapp openstreetmap-Generator</title>
+    <link href="../css/ausland.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="fe">
+    <div id="map"></div>
+    <script src="https://openlayers.org/api/OpenLayers.js"></script>
+    <script src="https://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+    <script src="https://www.comapp-online.de/osm3/shared/js/jquery_1.8.3/jquery.min.js"></script>
+    <script src="https://www.comapp-online.de/osm3/shared/js/plugins/jquery.flash.js"></script>
+    <script src="https://www.comapp-online.de/osm3/shared/js/plugins/modernizr_2.6.2.js"></script>
+    <script src="../js/mapGenerator.min.js"></script>
+
+    <script>
+      (function ($) {
+        // ********** - comapp - mapGenerator jsonData - start - ************ //
+        var json = {
+          version: 3,
+          locale: "de",
+          units: "m",
+          flashPath:
+            "https://www.comapp-online.de/osm3/shared/swf/audioPlayer.swf",
+          iconPath: "https://www.comapp-online.de/osm3/shared/img/marker/",
+          geoPath: "https://www.comapp-online.de/osm3/shared/ajax/geopos.php",
+          title:
+            "Projekte%20im%20Ausland%20%u2013%20Projects%20Abroad%20%u2013%20Proyectos%20en%20el%20extranjero%20%u2013%20%u5916%u56FD%u9879%u76EE",
+          descriptionStartStatus: true,
+          descriptionText: "Auslandseinsätze%20von%20IMBIT-Studierenden",
+          descriptionButtonShowText:
+            "Informationen und Hilfe zur Karte anzeigen",
+          descriptionButtonHideText:
+            "Informationen und Hilfe zur Karte verstecken",
+          audioPlayImage:
+            "https://www.comapp-online.de/osm3/shared/img/play.png",
+          audioStopImage:
+            "https://www.comapp-online.de/osm3/shared/img/stop.png",
+          audioDownloadImage:
+            "https://www.comapp-online.de/osm3/shared/img/download.png",
+          geoDownloadImage:
+            "https://www.comapp-online.de/osm3/shared/img/geo.png",
+          lon: -33.827343750006,
+          lat: 11.561996774105,
+          zoom: 3,
+          panzoombar: 1,
+          scaleline: 1,
+          showPopupOnHover: true,
+          markers: [
+            {
+              markerName: "Moritz%2C%2022%2C%20Sao%20Paolo",
+              markerLon: -46.57148437500329,
+              markerLat: -23.57913462395789,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20habe%20meine%20Auslandspraxisphase%20in%20S%E3o%20Paulo%2C%20Brasilien%20verbracht.%20In%20k%FCrzester%20Zeit%20habe%20ich%20neue%20Freundschaften%20geschlossen%20und%20mich%20super%20in%20dem%20Land%20eingelebt.%20Die%20Wochenenden%20habe%20ich%20oft%20mit%20Freunden%20an%20dem%20etwas%20entfernenten%20Strand%20oder%20in%20der%20Mega-City%20S%E3o%20Paulo%20verbracht.%20Ich%20war%20im%20Bereich%20Portfolio%20and%20Innovation%20eingesetzt%20und%20habe%20w%E4hrend%20meinem%20Aufenthalt%20an%20einem%20neuen%20IT-Automation%20Service%20gearbeitet.%20Vom%20Business%20Case%20bis%20zum%20Proof%20of%20Concept.%20Zudem%20durfte%20ich%20die%20drei%20gr%F6%DFten%20Kunden%20von%20Atos%20Brazil%20besuchen.%20Ein%20Kunde%20war%20in%20Rio%20de%20Janeiro%20angesiedelt%2C%20sodass%20ich%20dort%20sogar%20eine%20ganze%20Woche%20bleiben%20durfte%2C%20mit%20Besuch%20an%20der%20Copacabana%20versteht%20sich%20%28am%20Wochenende%29.%20Ich%20konnte%20unendlich%20viele%20neue%20Eindr%FCcke%20und%20Erfahrungen%20aus%20diesem%20Aufenthalt%20mitnehmen%20und%20bin%20super%20gl%FCcklich%2C%20dass%20mein%20Ausbildungsbetrieb%20mir%20diese%20Chance%20erm%F6glicht%20hat.",
+            },
+            {
+              markerName: "Marvin%2C%2025%20%26%20Steven%2C%2019%2C%20Slowakei",
+              markerLon: 21.24711914062185,
+              markerLat: 48.64739678775605,
+              markerIconImage: 0,
+              markerContent:
+                "Wir%20waren%20drei%20Monate%20lang%20in%20Kosice%20in%20der%20Abteilung%20Security%20t%E4tig.%20Dabei%20konnten%20wir%20vor%20allem%20Wissen%20aus%20den%20Bereichen%20ICM%20und%20Grundlagen%20der%20IT%20profitieren%20und%20uns%20in%20das%20Team%20integrieren.%20Am%20Abend%20ging%20es%20dann%20mit%20den%20Kollegen%20in%20die%20Innenstadt%20ein%20Gl%E4schen%20Slivovice%20%28Slowakischer%20Schnaps%29%20heben.%0A",
+            },
+            {
+              markerName: "Niklas%2C%2020%2C%20Dubai",
+              markerLon: 55.414599609372594,
+              markerLat: 25.334054252330883,
+              markerIconImage: 0,
+              markerContent:
+                "Im%20Rahmen%20meines%20Auslandseinsatzes%20durfte%20ich%20zweieinhalb%20Monate%20in%20Dubai%20arbeiten.%20Auch%20wenn%20ich%20im%20Sommer%20da%20war%20und%20zwischenzeitlich%20Temperaturen%20%FCber%2050%20Grad%20Celsius%20herrschten%2C%20genoss%20ich%20die%20Zeit.%20An%20dieser%20Stelle%20sei%20dem%20Erfinder%20der%20Klimaanlage%20noch%20einmal%20herzlich%20gedankt.%0AIch%20sollte%20in%20Dubai%20intern%20das%20neue%20Office-Paket%20einf%FChren%2C%20das%20meine%20Firma%20eingef%FChrt%20hat.%20Als%20%u201EDigital%20Native%u201C%20war%20das%20Problem%20weniger%2C%20dass%20ich%20manche%20Funktionen%20nicht%20kannte%2C%20sondern%20eher%2C%20wie%20ich%20diese%20erkl%E4ren%20sollte.%20Man%20kennt%u2019s%20ja%20von%20zu%20Hause%2C%20wenn%20Mama%20mal%20wieder%20keine%20Ahnung%20hat%2C%20wie%20sie%20ihr%20Handy%20auf%20stumm%20stellt...%20Trotzdem%2C%20oder%20gerade%20deswegen%2C%20hatte%20ich%20einen%20riesen%20Spa%DF%20dabei.%0AIn%20meiner%20Freizeit%20bin%20ich%20viel%20rumgereist%20und%20habe%20die%20verschiedenen%20Kulturen%20sch%E4tzen%20gelernt%2C%20die%20in%20den%20Emiraten%20%u201Ezu%20Hause%u201C%20sind%20%28nur%20ca.%2010%25%20der%20Einwohner%20Dubai%20sind%20wirklich%20Emiratis%29.",
+            },
+            {
+              markerName: "Lara%2C%2021%2C%20Amsterdam",
+              markerLon: 4.888476562497291,
+              markerLat: 52.37557051603012,
+              markerIconImage: 0,
+              markerContent:
+                "Im%20Rahmen%20meiner%20Auslandspraxisphase%20war%20ich%20drei%20Monate%20in%20Amsterdam.%20Die%20Aufgaben%20w%E4hrend%20meines%20Auslandsaufenthaltes%20drehten%20sich%20rund%20um%20das%20Thema%20Container-Logistik%2C%20Forecastberechnung%20und%20IT-Systeme.%20Besonders%20hilfreich%20war%20daher%20das%20Vorwissen%20aus%20den%20Vorlesungen%20Intercultural%20Management%2C%20Datenbanken%20so%20wie%20Management%20und%20VWL.%20In%20meiner%20Freizeit%20habe%20ich%20Amsterdam%20als%20weltoffene%20Stadt%20mit%20vielen%20jungen%20Menschen%20kennenlernen%20d%FCrfen.%20Ich%20hatte%20die%20M%F6glichkeit%20viel%20in%20Holland%20zu%20reisen%20und%20durch%20meine%20Kollegen%20die%20Geheimecken%20von%20Amsterdam%2C%20abseits%20der%20Touristen%20kennenzulernen.",
+            },
+            {
+              markerName: "Erik%2C%2021%2C%20Curacao",
+              markerLon: -69.8954589843779,
+              markerLat: 12.457986877557353,
+              markerIconImage: 0,
+              markerContent:
+                "In%20meiner%20Auslandspraxisphase%20war%20ich%20f%FCr%203%20Monate%20auf%20der%20Karibikinsel%20Curacao.%20Da%20ich%20auf%20der%20Insel%20bereits%20f%FCr%20ein%20paar%20Monate%20gelebt%20und%20gerarbeitet%20hatte%2C%20gab%20es%20f%FCr%20mich%20auf%20der%20Insel%20kaum%20Neues.%20Neues%20kam%20f%FCr%20lediglich%20bei%20der%20Arbeit%20auf%20mich%20zu.%20Dort%20starteten%20wir%20eine%20Digital%20Government%20Initiative%20f%FCr%20die%20lokale%20Regierung%2C%20welche%20allerdings%20zwischenzeitlich%20auf%20Eis%20gelegt%20wurde%2C%20da%20wir%20uns%20personell%20verdoppeln%20sollten.%20Einer%20unserer%20Konkurenten%20verlor%20seine%20Lizenz%20auf%20der%20Insel%2C%20weshalb%20eine%20gro%DFe%20Anzahl%20an%20neuen%20Mitarbeitern%20zu%20uns%20kam.%20F%FCr%20diese%20new%20joiner%20bereitete%20ich%20das%20Onboarding%20vor%20und%20bereitete%20ihnen%20den%20Weg%20bei%20uns%20voll%20durchzustarten.%0AAu%DFerhalb%20der%20Arbeitszeiten%20war%20ich%20viel%20tauchen%20und%20verbrachte%20viel%20Zeit%20mit%20Freunden%20und%20Kollegen%20an%20den%20karibischen%20Str%E4nden%20und%20Strandbars.",
+            },
+            {
+              markerName: "Nico%2C%2022%2C%20Mexico%20City",
+              markerLon: -99.13007812500604,
+              markerLat: 19.456189329406122,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20habe%20mein%204.%20Praxissemester%20in%20Mexico%20City%20verbracht.%20Dort%20befindet%20sich%20eine%20kleinere%20Niederlassung%20meiner%20Firma%2C%20die%20aber%20trotzdem%20sehr%20wichtig%20ist%2C%20da%20sie%20f%FCr%20ganz%20Zentralamerika%20zust%E4ndig%20ist.%20N%E4chstes%20Jahr%20ist%20dort%20ein%20SAP%20roll-out%20geplant.%20Meine%20Aufgabe%20bestand%20darin%2C%20vorbereitende%20Arbeiten%2C%20wie%20beispielsweise%20die%20Harmonisierung%20lokaler%20Prozesse%20mit%20den%20globalen%2C%20durchzuf%FChren.%20Mexiko%20ist%20reich%20an%20Kultur%20und%20gerade%20in%20der%20Metropole%20Mexico%20City%20treffen%20Tradition%20und%20Moderne%20aufeinander%20und%20leben%20arm%20und%20reich%20quasi%20als%20Nachbarn%20nebeneinander.%20Mit%20meinen%20Kollegen%20habe%20ich%20mich%20super%20verstanden.%20Die%20Mexikaner%20haben%20generell%20eine%20sehr%20herzliche%20und%20offene%20Art%2C%20sodass%20man%20nach%20der%20Arbeit%20auch%20mal%20mit%20den%20Kollegen%20Salsa%20tanzt.",
+            },
+            {
+              markerName: "Lina%2C%2020%2C%20Barcelona",
+              markerLon: 2.1199218749973783,
+              markerLat: 41.228213706438,
+              markerIconImage: 0,
+              markerContent:
+                "In%20meinem%20dritten%20Praxissemester%20habe%20ich%20im%20so%20genannten%20Mobile%20Competence%20Center%20meiner%20Firma%20in%20Barcelona%20im%20Bereich%20Sales%20%26%20Business%20Development%20gearbeitet.%20Dort%20wird%20sich%20thematisch%20mit%20dem%20gesamten%20Lebenszyklus%20mobiler%20und%20innovativer%20Projekte%20befasst.%20Markt-%20und%20Wettbewerbsanalysen%20geh%F6rten%20zu%20meinen%20t%E4glichen%20Aufgaben%20wodurch%20ich%20einen%20ausf%FChrlichen%20Einblick%20in%20das%20Produktportfolio%20am%20Standort%20Barcelona%20bekommen%20konnte.%20Ich%20hatte%20au%DFerdem%20die%20M%F6glichkeit%20meine%20eigenen%20Ideen%20f%FCr%20die%20Umsetzung%20der%20Kundenw%FCnsche%20in%20neuen%20Projekten%20einzubringen.%20Auch%20au%DFerhalb%20des%20B%FCros%20wird%20einem%20in%20Barcelona%20nie%20langweilig.%20So%20konnte%20ich%20kulturell%20sehr%20viele%20Erfahrungen%20sammeln%20und%20besonders%20meine%20in%20den%20Theoriephasen%20erlernten%20Spanischkenntnisse%20verbessern.",
+            },
+            {
+              markerName: "Julia%2C%2023%2C%20London",
+              markerLon: -0.07734375000262264,
+              markerLat: 51.44028349339434,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20habe%20in%20meinem%20Auslandseinsatz%20das%20Projektmanagement%20eines%20Charter%20Clients%20unterst%FCtzt.%20Hierbei%20konnte%20ich%20viele%20spannende%20Einblicke%20in%20die%20T%E4tigkeiten%20einer%20Beraterin%20auf%20einem%20Kundenprojekt%20im%20Bereich%20der%20Konsumg%FCterindustrie%20gewinnen.%20Besonders%20interessant%20war%20die%20direkte%20Interaktion%20mit%20dem%20Kunden%20im%20Bereich%20Scope%20Management.%20Pers%F6nlich%20gewachsen%20bin%20ich%20an%20den%20Aufgaben%2C%20die%20ich%20selbstst%E4ndig%20bearbeitet%20und%20mit%20dem%20Kunden%20besprochen%20habe.",
+            },
+            {
+              markerName: "Lara%2C%2021%2C%20London",
+              markerLon: -0.6925781250026128,
+              markerLat: 50.889144433366724,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20war%20zwei%20Monate%20in%20London%20und%20habe%20dort%20f%FCr%20einen%20Kunden%20der%20Konsumg%FCterindustrie%20das%20Go-Live%20eines%20Salesforce%20Projektes%20begleitet.%20Meine%20Aufgaben%20dabei%20umfassten%2C%20vor%20allem%20das%20Testing%20der%20implementierten%20Funktionen%20sowie%20die%20Administration%20und%20Bereitstellung%20einer%20Salesforce%20Testumgebung.%20So%20hatte%20ich%20die%20M%F6glichkeit%2C%20die%20Prozesse%20vor%20Ort%20beim%20Kunden%20besser%20nachvollziehen%20zu%20k%F6nnen.%20Au%DFerdem%20hatte%20ich%20an%20den%20Wochenenden%20die%20M%F6glichkeit%2C%20London%20sowie%20weitere%20St%E4dte%20und%20Sehensw%FCrdigkeiten%20in%20Gro%DFbritannien%20zu%20erkunden.",
+            },
+            {
+              markerName: "Sebastian%2C%2021%2C%20London",
+              markerLon: 1.15312499999735,
+              markerLat: 51.16553715889556,
+              markerIconImage: 0,
+              markerContent:
+                "Im%20Rahmen%20meines%20Auslandsaufenthaltes%20in%20London%20habe%20ich%20auf%20zwei%20Projekten%20mitgearbeitet.%20Im%20ersten%20Projekt%20haben%20wir%20f%FCr%20einen%20Kunden%20SAP%20Reports%20auf%20Completeness%20und%20Accuracy%20getestet.%20Dahingegen%20befasste%20sich%20das%20Zweite%20mit%20der%20Erstellung%20und%20Auswertung%20eines%20standardisierten%20Assessments%20in%20einem%20Governance%20Portal.%20Die%20T%E4tigkeiten%20waren%20sehr%20anspruchsvoll%2C%20aber%20nicht%20minder%20spannend.%20In%20meiner%20Freizeit%20und%20an%20den%20Wochenenden%20war%20ich%20h%E4ufig%20in%20der%20Stadt%20unterwegs%20und%20konnte%20so%20vieles%20sehen%20und%20erleben%2C%20was%20ich%20als%20Tourist%20nicht%20h%E4tte%20mitbekommen%20k%F6nnen.",
+            },
+            {
+              markerName:
+                "Nele%20und%20Marvin%20%2C%2021%20%26%2020%2C%20London",
+              markerLon: -1.132031250002594,
+              markerLat: 51.87646198716581,
+              markerIconImage: 0,
+              markerContent:
+                "Wir%20haben%20unseren%20f%FCnften%20Praxiseinsatz%20in%20London%20verbracht%2C%20wo%20wir%20das%20Talent%20%26%20Engagement%20Team%20unterst%FCtzt%20haben.%20Dabei%20fielen%20verschiedene%20Aufgaben%20und%20Projekt%20an.%20Besonders%20haben%20wir%20die%20N%E4he%20der%20Lokation%20zur%20Themse%2C%20dem%20London%20Eye%2C%20und%20der%20Innenstadt%20gesch%E4tzt.",
+            },
+            {
+              markerName: "Christian%2C%2021%2C%20Mailand",
+              markerLon: 9.195117187497376,
+              markerLat: 45.44468385336413,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20war%20drei%20Monate%20an%20einem%20Auslandsstandort%20meiner%20Firma%20in%20Mailand.%20Hier%20habe%20ich%20mit%20einem%20internationalen%20Team%20eine%20neue%20Software%20f%FCr%20das%20Warehouse%20Management%20eingef%FChrt.%20Mein%20Aufgabenbereich%20war%20vielf%E4ltig%20und%20herausfordernd.%20Ein%20Highlight%20war%20f%FCr%20mich%20das%20Arbeiten%20in%20einem%20internationalen%20Team%20und%20einer%20anderen%20Kultur%2C%20da%20sich%20dies%20noch%20einmal%20deutlich%20vom%20Arbeiten%20in%20internationalen%20Teams%20in%20Deutschland%20unterscheidet.%20Hierbei%20hat%20mir%20Spanisch%20als%20erlernte%20Fremdsprache%20an%20der%20DHBW%20geholfen%2C%20da%20Italienisch%20und%20Spanisch%20recht%20%E4hnlich%20sind.%20Das%20hat%20es%20mir%20erleichtert%2C%20auch%20noch%20etwas%20Italienisch%20zu%20lernen.%20An%20den%20Wochenenden%20habe%20ich%20die%20Stadt%20Mailand%20erkundet%20oder%20bin%20mit%20Freunden%20per%20Auto%20durch%20Nord-Italien%20gereist.%0A",
+            },
+            {
+              markerName: "Elias%2C%2022%2C%20Hong%20Kong",
+              markerLon: 114.13652343749642,
+              markerLat: 22.41098511988416,
+              markerIconImage: 0,
+              markerContent:
+                "W%E4hrend%20meiner%20Zeit%20in%20Hongkong%20war%20ich%20Teil%20des%20Performance%20Improvement%20Teams.%20Mein%20Fokus%20lag%20darauf%2C%20verschiedene%20Unternehmen%20bez%FCglich%20der%20Auswirkungen%20neuer%20Technologien%20wie%20Blockchain%2C%20FinTech%20und%20Cloud-L%F6sungen%20auf%20ihr%20Unternehmensmodell%20zu%20beraten.%20Dar%FCber%20hinaus%20unterst%FCtzte%20ich%20bei%20der%20Entwicklung%20digitaler%20Strategien%20zur%20Optimierung%20des%20Kundenerlebnisses%20und%20der%20User%20Journeys.%20Sehr%20gut%20haben%20mir%20der%20hohe%20Grad%20an%20Eigenverantwortung%20und%20das%20starke%20Vertrauen%20in%20die%20F%E4higkeiten%20der%20Mitarbeiter%20gefallen%2C%20welche%20im%20asiatischen%20Raum%20besonders%20ausgepr%E4gt%20sind.%20W%E4hrend%20meiner%20Freizeit%20hatte%20ich%20die%20M%F6glichkeit%2C%20meinen%20interkulturellen%20Horizont%20zu%20erweitern%2C%20indem%20ich%20eine%20Vielzahl%20von%20Orten%20in%20der%20Volksrepublik%20China%2C%20Thailand%2C%20Malaysia%20und%20sogar%20der%20Demokratischen%20Volksrepublik%20Korea%20%28Nordkorea%29%20besucht%20habe.%0A",
+            },
+            {
+              markerName: "Felix%2C%2021%2C%20Dublin",
+              markerLon: -6.2296875000024485,
+              markerLat: 53.317721002145134,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20war%20zwei%20Monate%20lang%20im%20Digital%20Sales%20Centre%20in%20Dublin%20t%E4tig%2C%20wo%20ich%20die%20M%F6glichkeit%20hatte%2C%20mit%20einem%20jungen%2C%20motivierten%20Team%20zu%20arbeiten.%20In%20einem%20solch%20internationalen%20Team%20waren%20besonders%20die%20im%20ICM%20Unterricht%20erlernten%20Kenntnisse%20sowie%20die%20Cloud%20Vorlesungen%20hilfreich.%20Abends%20ging%20es%20dann%20immer%20in%20die%20Innenstadt%2C%20wo%20man%20in%20den%20zahlreichen%20Pubs%20mit%20sehr%20internationalem%20Flair%20den%20Abend%20ausklingen%20lassen%20konnte.",
+            },
+            {
+              markerName: "Jil%2C%2021%2C%20Bratislava",
+              markerLon: 17.127246093747903,
+              markerLat: 48.1220696886025,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20habe%20zwei%20Monate%20an%20der%20Webpr%E4senz%20meiner%20Firma%20mitgeholfen%2C%20indem%20ich%20weltweite%20Auftr%E4ge%20bearbeitet%20und%20implementiert%20habe.%20Insbesondere%20die%20Vorlesungen%20in%20Webprogrammierung%20sowie%20die%20anderen%20Programmiervorlesungen%20haben%20mir%20dabei%20geholfen%2C%20mich%20schnell%20ins%20Thema%20einzuarbeiten.%20Das%20Arbeiten%20im%20Ausland%2C%20besonders%20im%20Osten%20Europas%2C%20hat%20mir%20gezeigt%2C%20wie%20unterschiedlich%20Arbeitnehmer%20in%20verschiedenen%20L%E4ndern%20verdienen%20und%20war%20eine%20lehrreiche%20Erfahrung%20f%FCr%20mich%2C%20wie%20gut%20es%20uns%20in%20Deutschland%20geht.%20Des%20Weiteren%20konnte%20ich%20von%20dort%20viele%20osteurop%E4ische%20L%E4nder%20gut%20bereisen.",
+            },
+            {
+              markerName: "Kevin%2C%2022%2C%20Madrid",
+              markerLon: -3.702832031252564,
+              markerLat: 40.41346030455119,
+              markerIconImage: 0,
+              markerContent:
+                "Im%20Zuge%20meines%20Studiums%20habe%20ich%20drei%20Monate%20in%20Spaniens%20Hauptstadt%20Madrid%20verbracht.%20Dort%20war%20ich%2C%20neben%20dem%20Schreiben%20einer%20Projektarbeit%2C%20an%20der%20Einf%FChrung%20eines%20neuen%20SAP%20CRM%20Systems%20f%FCr%20unsere%20Standorte%20in%20Spanien%2C%20UK%20und%20S%FCdafrika%20involviert.%20Geholfen%20haben%20mir%20dabei%20Vorlesungen%20wie%20Wirtschaftsinformatik%20und%20Datenbanken.%20Meine%20Freizeit%20habe%20ich%20mit%20der%20spanischen%20K%FCche%2C%20dem%20Nachtleben%20sowie%20den%20vielen%20Sehensw%FCrdigkeiten%20und%20in%20Museen%20verbracht%2C%20die%20die%20Stadt%20zu%20bieten%20hat.%20Insgesamt%20war%20es%20eine%20tolle%20Erfahrung.",
+            },
+            {
+              markerName: "Luca%2C%2020%2C%20Madrid",
+              markerLon: -3.3073242187525,
+              markerLat: 40.430187898245286,
+              markerIconImage: 0,
+              markerContent:
+                "In%20Madrid%20habe%20ich%20meinen%205.%20Praxiseinsatz%20verbracht.%20Ich%20habe%20dort%20mit%20einem%20internationalen%20Team%20die%20Implementation%20einer%20Track-and-Trace-L%F6sung%20gestartet.%20Ich%20habe%20viel%20Neues%20gelernt%20und%20hatte%20sehr%20viel%20Spa%DF.",
+            },
+            {
+              markerName: "Hector%2C%2026%2C%20Madrid",
+              markerLon: -3.9005859375025063,
+              markerLat: 40.71392024123267,
+              markerIconImage: 0,
+              markerContent:
+                "In%20Madrid%20habe%20ich%20die%20M%F6glichkeit%20bekommen%2C%20ein%20SOC%20%28Security%20Operations%20Center%29%20n%E4her%20kennenzulernen%20und%20die%20t%E4glichen%20Aktivit%E4ten%20zu%20unterst%FCtzen.%20Dazu%20z%E4hlten%20die%20Erstellung%20von%20Log-Parsing-Regeln%20mit%20Regex%20und%20die%20Klassifizierung%20von%20Events%20und%20Sicherheitsl%FCcken%20anhand%20von%20SIEM%20und%20Threat%20Intelligence%20Software.%20Spannend%20fand%20ich%20vor%20allem%2C%20wie%20anders%20die%20spanische%20Arbeitsweise%20ist%2C%20obwohl%20das%20Land%20physisch%20nicht%20allzu%20weit%20entfernt%20ist.",
+            },
+            {
+              markerName: "Maria%2C%2028%2C%20San%20Miguel%20de%20Allende",
+              markerLon: -100.74918823242471,
+              markerLat: 20.91393912164866,
+              markerIconImage: 0,
+              markerContent:
+                "Sehr%20kurzfristig%20schickte%20mich%20mein%20Chef%20zu%20einem%20Kunden%20in%20Mexiko%2C%20bei%20dem%20der%20Go-Live%20der%20Produktion%20in%20einem%20neuen%20Werk%20erfolgen%20sollte%2C%20ohne%20dass%20die%20IT-Infrastruktur%20dazu%20bereit%20war.%20Ich%20hatte%20vor%20Ort%20nur%20dreieinhalb%20Tage%20Zeit%2C%20um%20den%20IT-Verantwortlichen%20so%20gut%20wie%20m%F6glich%20zu%20unterst%FCtzen.%20Dennoch%20habe%20ich%20in%20dieser%20Zeit%20viel%20%FCber%20Kommunikation%20und%20interkulturelles%20Management%20gelernt%20und%20konnte%20meine%20Spanischkenntnisse%20sehr%20erfolgreich%20einsetzen.%20Besonders%20durch%20die%20Kommunikation%20zwischen%20den%20Service%20Providern%20konnte%20ich%20zum%20Erfolg%20des%20Go-Lives%20beitragen.%20Au%DFerdem%20konnte%20ich%20mir%20die%20h%FCbschen%20St%E4dte%20Quer%E9taro%20und%20San%20Miguel%20anschauen%20und%20die%20Kultur%20ein%20bisschen%20kennen%20lernen.%0A",
+            },
+            {
+              markerName: "Luca%2C%2022%2C%20Singapur",
+              markerLon: 103.89177246093463,
+              markerLat: 1.2866185888423542,
+              markerIconImage: 0,
+              markerContent:
+                "Durch%20meinen%20Auslandseinsatz%20habe%20ich%20die%20M%F6glichkeit%20bekommen%20zu%20erfahren%2C%20wie%20es%20ist%2C%20in%20einer%20anderen%20Umgebung%20zu%20arbeiten.%20Es%20hat%20mir%20gezeigt%2C%20wie%20viel%20ich%20%FCber%20die%20letzten%20Jahre%20gelernt%20habe%20und%20wo%20ich%20noch%20Verbesserungspotenzial%20habe.%20Insgesamt%20war%20der%20Auslandseinsatz%20die%20perfekte%20Umgebung%2C%20um%20meine%20Zukunft%20nach%20dem%20Studium%20zu%20testen.%20%C4hnlich%20wie%20ich%20es%20in%20einer%20neuen%20Firma%20tun%20w%FCrde%2C%20habe%20ich%20in%20einer%20neuen%20Stadt%2C%20mit%20neuen%20Kollegen%20und%20Abl%E4ufen%20arbeiten%20d%FCrfen.",
+            },
+            {
+              markerName: "Nina%2C%2023%2C%20Singapur",
+              markerLon: 105.3859130859401,
+              markerLat: 1.5502094383538472,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20war%20zwei%20Monate%20in%20Singapur%20und%20habe%20in%20einem%20Sales%20Team%20mit%20Verantwortlichkeit%20%FCber%20ganz%20Asia-Pacific%20gearbeitet.%20Die%20Sales%20Aktivit%E4ten%20haben%20an%20viele%20gelernte%20F%E4higkeiten%20aus%20den%20Vorlesungen%20an%20der%20DHBW%20angekn%FCpft%2C%20unter%20anderem%20an%20Kenntnisse%20aus%20Wirtschaftsinformatik%2C%20der%20IoT%20Fallstudie%20in%20Semester%204%20und%20nat%FCrlich%20ICM.%20Da%20Sales%20Teams%20meistens%20nicht%20zusammen%20in%20der%20Firma%20sitzen%20sondern%20sich%20vor%20Ort%20beim%20Kunden%20aufhalten%2C%20hatte%20ich%20sofort%20selbst%E4ndig%20arbeiten%20und%20mit%20den%20Menschen%20vor%20Ort%20kommunizieren%20m%FCssen%2C%20was%20unheimlich%20viel%20Spa%DF%20gemacht%20hat.%20Ich%20habe%20dadurch%20viele%20Menschen%20aus%20ganz%20unterschiedlichen%20Kulturen%20kennengelernt.%20Nach%20der%20Arbeit%20sind%20meine%20Kollegen%20sehr%20oft%20mit%20mir%20essen%20gegangen%20oder%20haben%20mir%20mehr%20von%20Singapur%20gezeigt.%20An%20den%20Wochenenden%20habe%20ich%20oft%20Kurztrips%20in%20andere%20asiatische%20St%E4dte%20gemacht%20oder%20mich%20mit%20Freunden%20am%20Strand%20getroffen.%0A",
+            },
+            {
+              markerName: "Steffany%2C%2023%2C%20Singapur",
+              markerLon: 102.30974121093939,
+              markerLat: 2.8675601046197743,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20war%20zwei%20Monate%20in%20Singapur%20und%20habe%20dort%20f%FCr%20meine%20Abteilung%20ein%20Sales%20Seminar%20geplant.%20In%20diesem%20Rahmen%20musste%20ich%20alles%20vom%20Kundenprofiling%20bis%20zur%20Organisation%20vom%20Event%20durchf%FChren%2C%20was%20sehr%20spannend%20war.%20Obwohl%20viel%20zu%20tun%20war%2C%20sind%20wir%20mit%20den%20Kollegen%20oft%20abends%20noch%20etwas%20trinken%20gegangen%20und%20an%20Wochenenden%20bin%20ich%20viel%20gereist.%20Da%20viele%20Kommilitonen%20zur%20selben%20Zeit%20in%20Asien%20waren%2C%20konnte%20man%20sich%20super%20gegenseitig%20besuchen.%20Ich%20kann%20es%20jedem%20empfehlen%20und%20w%FCrde%20jederzeit%20wieder%20dorthin%20fliegen%21",
+            },
+            {
+              markerName: "Rebecca%2C%2026%2C%20Atlanta",
+              markerLon: -84.36994628905981,
+              markerLat: 33.77111770254715,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20war%20zwei%20Monate%20in%20Atlanta%2C%20Georgia%2C%20und%20habe%20auf%20einem%20Projekt%20mitgearbeitet%2C%20bei%20dem%20es%20um%20die%20technische%20Umsetzung%20der%20neuen%20GDPR-Richtlinien%20ging.%20Meine%20Aufgaben%20dort%20reichten%20von%20Projektmanagement-T%E4tigkeiten%20%FCber%20die%20Visualisierung%20der%20ben%F6tigten%20IT-Architektur%20bis%20hin%20zum%20Provisioning%20entsprechender%20Server.%20Besonders%20gefiel%20mir%2C%20wie%20abwechslungsreich%20meine%20Aufgaben%20waren%20und%20dass%20es%20sich%20um%20ein%20hochaktuelles%20Thema%20handelte%20sowie%20die%20Arbeit%20in%20einem%20sehr%20internationalen%2C%20weltweit%20aufgestellten%20Team.%20Hilfreich%20waren%20f%FCr%20mich%20die%20an%20der%20DHBW%20erlernte%20Aspekte%20des%20Projektmanagements%20und%20der%20Systemanalyse%20%28bzw.%20des%20Systemdesigns%29.%20In%20meiner%20Freizeit%20war%20ich%20viel%20mit%20Locals%20unterwegs%2C%20um%20die%20Region%20zu%20erkunden%20oder%20bin%20gereist.",
+            },
+            {
+              markerName: "Sophia%2C%2022%2C%20Atlanta",
+              markerLon: -84.06232910156155,
+              markerLat: 33.734579725702886,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20war%20drei%20Monate%20in%20Atlanta%20und%20habe%20dort%20meine%20Abteilung%20in%20einem%20internen%20Strategieprojekt%20unterst%FCtzt.%20In%20dem%20Projekt%20ging%20es%20um%20die%20Konstruktion%20einer%20Datenplattform%2C%20die%20zum%20Ziel%20hatte%2C%20fundierte%2C%20datengesteuerte%20Gesch%E4ftsentscheidungen%20basierend%20auf%20zuverl%E4ssigen%20und%20umfassenden%20Datens%E4tzen%20zu%20treffen.%20Insgesamt%20konnte%20ich%20mich%20in%20vielerlei%20Hinsicht%20weiterentwickeln.%20Zum%20einen%20ist%20das%20Arbeiten%20in%20einem%20anderen%20Land%20immer%20mit%20interkulturellen%20Differenzen%2C%20die%20es%20zu%20%FCberbr%FCcken%20gilt%2C%20verbunden%20und%20zum%20anderen%20hatte%20ich%20die%20M%F6glichkeit%2C%20insbesondere%20mein%20erlerntes%20Fachwissen%20aus%20Datenbanken%2C%20Systemanalyse%20und%20Communication%20Systems%2C%20in%20der%20Praxis%20anzuwenden.%20An%20den%20Wochenenden%20und%20in%20meinem%20Urlaub%20habe%20ich%20die%20Zeit%20genutzt%2C%20um%20quer%20durch%20die%20USA%20zu%20reisen.%20Ich%20w%FCrde%20es%20auf%20jeden%20Fall%20wieder%20machen.",
+            },
+            {
+              markerName: "Fabian%2C%2020%2C%20Peking",
+              markerLon: 116.5040771484375,
+              markerLat: 39.91918009383977,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20war%20zwei%20Monate%20f%FCr%20einen%20gro%DFen%20amerikanischen%20IT-Konzern%20im%20Bereich%20Customer%20Experience%20in%20China%20t%E4tig.%20Neben%20den%20fachlichen%20Herausforderungen%2C%20wie%20den%20starken%20Restriktionen%20f%FCr%20ausl%E4ndische%20Unternehmen%20in%20China%2C%20lagen%20die%20gr%F6%DFten%20Schwierigkeiten%20f%FCr%20mich%20im%20interkulturellen%20Umfeld.%20Die%20Arbeitsmentalit%E4t%20und%20Kommunikationsbereitschaft%20weicht%20sehr%20stark%20von%20deutscher%20P%FCnktlichkeit%20und%20Ordnung%20ab.%20Aber%20nach%20den%20ersten%20Kommunikationsschwierigkeiten%20sind%20mir%20viele%20Kollegen%20und%20neue%20Bekannte%20sehr%20freundlich%20und%20h%F6flich%20begegnet%20und%20ich%20hatte%20eine%20tolle%20Zeit%20in%20einer%20der%20gr%F6%DFten%20Metropolen%20der%20Welt.%0A",
+            },
+            {
+              markerName: "Tobias%2C%2022%2C%20Peking",
+              markerLon: 116.85563964844144,
+              markerLat: 40.121104621612936,
+              markerIconImage: 0,
+              markerContent:
+                "Im%20Zuge%20eines%20Outsourcing-Projektes%20f%FCr%20einen%20Kunden%20bin%20ich%20nach%20Beijing%20gereist.%20Vor%20Ort%20habe%20ich%20eine%20Bestandsaufnahme%20der%20SAP-%20%26%20IT-Prozesse%20gemacht%20und%20evaluiert%2C%20welche%20Aufgaben%20ein%20zuk%FCnftiger%20Service%20Provider%20zu%20bew%E4ltigen%20hat%2C%20sowie%20diese%20in%20einem%20Anforderungskatalog%20erfasst.%20Mit%20Hilfe%20von%20Request%20for%20Proposals%2C%20aufgebaut%20anhand%20des%20Anforderungskataloges%2C%20holte%20ich%20mehrere%20Service-Angebote%20f%FCr%20unseren%20Kunden%20ein%20und%20%FCbergab%20diese%20dem%20General%20Manager%20China.%20Die%20Selbstst%E4ndigkeit%20und%20Eigenverantwortung%20in%20meinem%20Projekt%20haben%20mich%2C%20insbesondere%20in%20der%20Bew%E4ltigung%20von%20Herausforderungen%2C%20aber%20auch%20in%20meiner%20Organisation%20und%20Planung%2C%20besser%20gemacht.%20Hilfreich%20waren%20f%FCr%20mich%20hier%20die%20an%20der%20DHBW%20erlernten%20Kenntnisse%20im%20Projektmanagement%20sowie%20dem%20Fachwissen%20aus%20IT%20und%20Wirtschaftsinformatik.%20Abseits%20des%20gesch%E4ftlichen%20Alltags%20nutzte%20ich%20die%20Wochenenden%2C%20um%20mit%20Freunden%20diverse%20St%E4dte%20und%20Sehensw%FCrdigkeiten%20zu%20besichtigen.",
+            },
+            {
+              markerName: "Felix%2C%2021%2C%20Peking",
+              markerLon: 115.58122558593729,
+              markerLat: 40.05386284555316,
+              markerIconImage: 0,
+              markerContent:
+                "Im%20Winter%202019%20hatte%20ich%20die%20M%F6glichkeit%20in%20Peking%20zu%20arbeiten.%20Die%20Arbeitskultur%20und%20das%20Leben%20in%20China%20waren%20ein%20v%F6llig%20neues%20Erlebnis%20f%FCr%20mich.%20In%20einem%20Land%20in%20dem%20ich%20nicht%20verstanden%20werde%20und%20nur%20mit%20Hilfe%20des%20Internets%20und%20Kontexts%20einige%20Dinge%20verstehe%20war%20jeder%20Tag%20ein%20Abenteuer.%20Zu%20meinen%20Aufgaben%20geh%F6rte%20vor%20allem%20die%20Unterst%FCtzung%20des%20Senior%20Managements.%20%0A",
+            },
+            {
+              markerName: "Michelle%2C%2021%2C%20Peking",
+              markerLon: 116.32829589844003,
+              markerLat: 40.55655561922521,
+              markerIconImage: 0,
+              markerContent:
+                "Eine%20andere%20kulturelle%20Arbeitsweise%20auf%20der%20Executive%20Ebene%20und%20das%20Leben%20in%20einer%20Megacity.%20In%20diesen%20Bereichen%20konnte%20ich%20%20zahlreiche%20Erfahrungen%20w%E4hrend%20meiner%20Zeit%20in%20Peking%20sammeln.%20Es%20war%20eine%20einzigartige%20Zeit%21%20",
+            },
+            {
+              markerName: "Niklas%2C%2021%2C%20Krakau",
+              markerLon: 20.00017089843846,
+              markerLat: 50.07209494603877,
+              markerIconImage: 0,
+              markerContent:
+                "Meinen%20Auslandseinsatz%20verbrachte%20ich%20in%20einem%20Finance%20Shared%20Service%20Center%20eines%20Kunden%20aus%20der%20Chemieindustrie.%20Dort%20arbeitete%20ich%20in%20den%20Bereichen%20Record-To-Report%20sowie%20Procure-To-Pay%20Accounting%20und%20unterst%FCtzte%20den%20Kunden%20bei%20seiner%20Financial%20Transformation.%20Die%20Zeit%20im%20Ausland%20war%20f%FCr%20mich%20eine%20sehr%20wertvolle%20Erfahrung%20-%20sowohl%20in%20fachlicher%2C%20als%20auch%20pers%F6nlicher%20Hinsicht.%20",
+            },
+            {
+              markerName: "Tatsiana%2C%2025%2C%20Linz",
+              markerLon: 14.287280273437931,
+              markerLat: 48.30600294924603,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20verbrachte%20eine%20Praxisphase%20in%20einem%20Tochterunternehmen%20meines%20Ausbildungsbetriebes%20in%20%D6sterreich.%20Es%20hat%20mir%20dort%20gut%20gefallen%2C%20meine%20Kollegen%20waren%20sehr%20freundlich%20und%20das%20B%FCro%20ist%20sch%F6n.%20Dort%20habe%20ich%20meine%20zweite%20Projektarbeit%20verfasst%20und%20meine%20Kollegen%20haben%20mich%20dabei%20sehr%20gut%20unterst%FCtzt.%0A",
+            },
+            {
+              markerName: "Liza%2C%2022%2C%20Boston",
+              markerLon: -71.03254394531152,
+              markerLat: 42.30267129918521,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20habe%20meinen%20dreimonatigen%20Auslandsaufenthalt%20in%20Boston%20verbracht.%20Dort%20arbeitete%20ich%20mit%20dem%20Software%20Entwicklungsteam%20f%FCr%20HR%20Solutions%20zusammen%20und%20habe%20den%20Go-to-Market-Prozess%20eines%20Produktes%20unterst%FCtzt.%20Ich%20konnte%20viele%20erlernte%20F%E4higkeiten%20aus%20den%20Vorlesungen%20an%20der%20DHBW%20anwenden%2C%20besonders%20beim%20technischen%20Verst%E4ndnis%20und%20bei%20der%20interkulturellen%20Zusammenarbeit.%20Neben%20der%20Arbeit%20habe%20ich%20die%20Chance%20genutzt%2C%20das%20Land%20zu%20erkunden%20und%20so%20viele%20Orte%20wie%20m%F6glich%20zu%20sehen.%20Ich%20bin%20sehr%20froh%20dar%FCber%2C%20dass%20mir%20die%20Chance%20gegeben%20wurde%2C%20f%FCr%20drei%20Monate%20in%20einem%20anderen%20Land%20zu%20leben%20und%20zu%20arbeiten.%20",
+            },
+            {
+              markerName: "Katharina%2C%2022%2C%20Brasov",
+              markerLon: 25.60319824218923,
+              markerLat: 45.60727995832419,
+              markerIconImage: 0,
+              markerContent:
+                "Meinen%20zweimonatigen%20Auslandseinsatz%20verbrachte%20ich%20in%20Brasov%2C%20Rum%E4ninen%2C%20auf%20einem%20Projekt%20in%20der%20Versicherungsbranche.%20Hier%20habe%20ich%20ein%20Konzept%20erstellt%2C%20um%20auf%20einer%20internen%20Webseite%20Gamification%20zu%20implementieren.%20Hierzu%20habe%20ich%20mehrere%20kleine%20Design%20Thinking%20Workshops%20durchgef%FChrt%20und%20mithilfe%20von%20Axure%20RP%20Screens%20erstellt%2C%20an%20denen%20sich%20die%20Entwickler%20orientieren%20konnten.%20Meine%20Kollegen%20waren%20sehr%20hilfsbereit%20und%20ich%20habe%20selten%20so%20eine%20Gastfreundschaft%20erlebt%20Rum%E4nien%20ist%20nicht%20so%2C%20wie%20man%20es%20sich%20vorstellt%3A%20die%20Natur%20ist%20der%20Wahnsinn%2C%20die%20Berge%20sind%20vergleichbar%20mit%20den%20Alpen.%0A",
+            },
+            {
+              markerName: "Alexandra%2C%2021%2C%20New%20York",
+              markerLon: -74.02082519531078,
+              markerLat: 40.67331192837384,
+              markerIconImage: 0,
+              markerContent:
+                "Meinen%20Auslandseinsatz%20habe%20ich%20im%20Hauptsitz%20meiner%20Firma%20in%20Armonk%2C%20USA%2C%20verbracht%2C%20welches%20nahe%20New%20York%20liegt.%20Hier%20habe%20ich%20das%20Programmmanagement%20unseres%20%22Corporate%20Service%20Corps%22%20pro%20bono%20Programmes%20unterst%FCtzt%20und%20wertvolle%20Einblicke%20in%20den%20Bereich%20der%20Corporate%20Citizenship%20bekommen.%20In%20der%20Zeit%20konnte%20ich%20sehr%20viel%20lernen%20-%20sowohl%20fachlich%2C%20als%20auch%20in%20Sachen%20interkulturelle%20Kommunikation.%20Nach%20der%20Arbeit%20und%20an%20den%20Wochenenden%20ging%20es%20fast%20immer%20nach%20New%20York%20-%20eine%20unglaubliche%20Stadt%2C%20in%20welcher%20es%20einem%20nie%20langweilig%20wird%21%20",
+            },
+            {
+              markerName: "Felix%2C%2021%2C%20New%20York",
+              markerLon: -73.58137207031082,
+              markerLat: 40.73993819216921,
+              markerIconImage: 0,
+              markerContent:
+                "In%20meinem%20vierten%20Praxiseinsatz%20hatte%20ich%20die%20Chance%2C%20f%FCr%20zweieinhalb%20Monate%20im%20Bereich%20Corporate%20Citizenship%20in%20New%20York%20zu%20arbeiten.%20Ich%20war%20verantwortlich%2C%20ein%20Bewerbungsverfahren%20f%FCr%20ein%20internes%20Leadership%20Development%20Programm%2C%20bei%20dem%20Mitarbeiter%20auf%20wohlt%E4tigen%20Projekten%20auf%20der%20ganzen%20Welt%20eingesetzt%20werden%2C%20zu%20entwickeln.%20Dabei%20waren%20vor%20allem%20meine%20BWL-%20und%20Projektmanagement-Kenntnisse%20aus%20der%20Uni%20hilfreich.%20F%FCr%20mich%20war%20es%20ein%20echtes%20Highlight%2C%20f%FCr%20einen%20l%E4ngeren%20Zeitraum%20in%20einer%20Metropole%20wie%20New%20York%20zu%20leben.%20Ich%20habe%20sehr%20viel%20gesehen%20und%20kenne%20mich%20besser%20aus%2C%20als%20jeder%20Urlaub%20es%20h%E4tte%20erm%F6glichen%20k%F6nnen.",
+            },
+            {
+              markerName: "Cornelius%2C%2021%2C%20Dubai",
+              markerLon: 55.45854492187734,
+              markerLat: 25.384933543134558,
+              markerIconImage: 0,
+              markerContent:
+                "Meine%20Zeit%20im%20Ausland%20habe%20ich%20in%20Dubai%20bei%20perfekten%20Wetterbedingungen%20verbracht%20und%20bei%20einem%20Kunden%20vor%20Ort%20die%20Einf%FChrung%20eines%20Business%20Excellence-Frameworks%20unterst%FCtzt.%20Dabei%20konnte%20ich%20sowohl%20wertvolle%20Einblicke%20in%20die%20Strategie-Beratung%2C%20wie%20auch%20internationales%20Kundenmanagement%20gewinnen.%20Theoretische%20Grundlagen%20lieferten%20mir%20hierf%FCr%20die%20Vorlesungen%20Projektmanagement%20und%20Intercultural%20Management.%20In%20der%20mir%20verbleibenden%20Freizeit%20habe%20ich%20die%20ber%FChmten%20Sehensw%FCrdigkeiten%20Dubai%5C%27s%20und%20angrenzender%20Emirate%20besucht.%20Besonders%20beeindruckt%20haben%20mich%20die%20Diversit%E4t%20und%20die%20vision%E4ren%20Bestrebungen%20der%20Stadt.%20",
+            },
+            {
+              markerName: "Julian%2C%2020%2C%20Bengaluru",
+              markerLon: 77.63994140625131,
+              markerLat: 12.855942004434812,
+              markerIconImage: 0,
+              markerContent:
+                "In%20Bengaluru%20habe%20ich%20meinen%20dritten%20Praxiseinsatz%20in%20einem%20Entwicklungsteam%20verbracht%2C%20das%20einen%20ChatBot%20Service%20baute%2C%20der%20Informationen%20zu%20Ticketstatus%20und%20L%F6sungen%20zu%20Standardproblemen%20ausgibt.%20Alle%20Kollegen%20waren%20sehr%20nett%20-%20ich%20war%20schnell%20Teil%20des%20Teams%20und%20konnte%20die%20indische%20Kultur%20aus%20n%E4chster%20N%E4he%20kennen%20lernen.%20Da%20Indien%20in%20der%20heutigen%20IT%20eine%20bedeutsame%20Rolle%20spielt%2C%20ist%20es%20hilfreich%2C%20die%20indische%20Kultur%20zu%20kennen.%0A",
+            },
+            {
+              markerName: "Anne%2C%2024%2C%20Breslau",
+              markerLon: 17.017382812501726,
+              markerLat: 51.1112526097954,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20habe%20meinen%20Auslandsaufenthalt%20in%20der%20wundersch%F6nen%20polnischen%20Stadt%20Breslau%20verbracht.%20Dort%20habe%20ich%20zusammen%20mit%20dem%20Quality%20Control%20Team%20an%20der%20Optimierung%20und%20Automatisierung%20von%20t%E4glichen%20Reportingaufgaben%20mit%20Hilfe%20von%20Process%20Mining%20Software%20und%20BI%20Tools%20gearbeitet.%20Der%20Auslandsaufenthalt%20war%20eine%20tolle%20Zeit%20um%20die%20Arbeits-%20und%20Lebenskultur%20in%20einem%20anderen%20Land%20kennenzulernen%20und%20herauszufinden%2C%20wie%20man%20sich%20in%20einer%20anderen%20Kultur%20verh%E4lt%20und%20dort%20effektiv%20arbeitet.%20",
+            },
+            {
+              markerName:
+                "Anika%20und%20Barbara%2C%2021%20%26%2025%2C%20San%20Jose",
+              markerLon: -121.95966796874006,
+              markerLat: 37.353747127750566,
+              markerIconImage: 0,
+              markerContent:
+                "In%20San%20Jose%20haben%20wir%20unseren%205.%20Praxiseinsatz%20im%20Global%20Chief%20Data%20Office%20eines%20weltweit%20f%FChrenden%20IT%20Konzerns%20verbracht.%20Wir%20haben%20uns%20die%20meiste%20Zeit%20mit%20der%20Softwareentwicklung%20im%20Frontend%20und%20Backend%20befasst.%20Gro%DFraumb%FCros%20gab%20es%20dort%20nicht%20wirklich%2C%20weshalb%20jeder%20von%20uns%20einen%20Gro%DFteil%20der%20Zeit%20alleine%20gearbeitet%20hat%20und%20es%20viele%20Online-Meetings%20gab.%20Es%20war%20dennoch%20eine%20tolle%20Erfahrung%21",
+            },
+            {
+              markerName: "Elisa%2C%2021%2C%20Sydney",
+              markerLon: 151.33623046875297,
+              markerLat: -33.88755646628569,
+              markerIconImage: 0,
+              markerContent:
+                "In%20Sydney%20habe%20ich%20meinen%205.%20Praxiseinsatz%20verbracht.%20Ich%20habe%20dort%20dem%20lokalen%20CO/FI%20Team%20dabei%20geholfen%20eine%20neue%20Software%20zur%20Kosten-%20und%20Salesplanung%20zu%20implementieren.%20Zu%20meinen%20Aufgaben%20hat%20sowohl%20die%20Datenbereinigung%20und%20Validierung%2C%20als%20auch%20das%20Enduser-%20und%20Administratortraining%20gez%E4hlt.%20Des%20Weiteren%20habe%20ich%20auch%20einige%20Reportingtemplates%20gebaut.%20",
+            },
+            {
+              markerName: "Alice%2C%2021%2C%20Mumbai",
+              markerLon: 72.80595703125792,
+              markerLat: 18.83477072362047,
+              markerIconImage: 0,
+              markerContent:
+                "W%E4hrend%20meines%20Auslandspraxiseinsatzes%20hatte%20ich%20die%20M%F6glichkeit%2C%20in%20Mumbai%2C%20genauer%20gesagt%20in%20Navi%20Mumbai%2C%20zu%20arbeiten.%20Meine%20Jobrolle%20k%F6nnte%20man%20als%20Junior%20IT%20Consultant%20beschreiben.%20Ich%20habe%20ein%20internes%20Knowledge%20Management%20Tool%20mit%20JavaScript%20weiterentwickelt%2C%20einen%20Kundentermin%20vorbereitet%20und%20daran%20teilgenommen%20und%20hatte%20diverse%20T%E4tigkeiten%20im%20Bereich%20Sales%20Support.%20Die%20Arbeitskultur%20war%20sehr%20anders%2C%20aber%20ich%20wurde%20freundlich%20im%20Team%20aufgenommen%20und%20durfte%20die%20indische%20Kultur%20kennen%20lernen.%0A",
+            },
+            {
+              markerName: "Niklas%2C%2022%2C%20Basel",
+              markerLon: 7.591113281257764,
+              markerLat: 47.547766855708126,
+              markerIconImage: 0,
+              markerContent:
+                "In%20Basel%20habe%20ich%20die%20M%F6glichkeit%20bekommen%2C%20in%20einem%20Softwareunternehmen%20in%20der%20Versicherungsbranche%20zu%20arbeiten.%20Dort%20habe%20ich%20Einblicke%20in%20die%20Branche%20und%20in%20Anforderungsmanagement%20bekommen.%20Au%DFerdem%20durfte%20ich%20bei%20einem%20agilem%20Frontend%20Projekt%20mitarbeiten.",
+            },
+            {
+              markerName: "Anette%2C%2022%2C%20Gijon",
+              markerLon: -5.674877929679844,
+              markerLat: 43.53358199479392,
+              markerIconImage: 0,
+              markerContent:
+                "In%20der%20N%E4he%20von%20Gijon%20arbeitete%20ich%20in%20der%20neuen%20Gesellschaft%20meiner%20Firma%2C%20die%20erst%20im%20gleichen%20Jahr%20gekauft%20wurde.%20Dort%20wurde%20ich%20haupts%E4chlich%20im%20Marketing%20eingesetzt%20und%20besch%E4ftigte%20mich%20mit%20einer%20Konkurrentenanalyse%20des%20spanischen%20Marktes.%0A",
+            },
+            {
+              markerName: "Dominik%2C%2022%2C%20Dubai",
+              markerLon: 55.270782,
+              markerLat: 25.204849,
+              markerIconImage: 0,
+              markerContent:
+                "Beeindruckend%20sind%20die%20Eindrücke%2C%20die%20ich%20aus%20Dubai%20mitnehme.%20Ich%20verbrachte%20knapp%20drei%20Monate%20in%20Dubai%20und%20lernte%20die%20Vielseitigkeit%20und%20Diversität%20Dubais%20und%20seiner%20Arbeitswelt%20kennen.%20Das%20Arbeiten%20mit%20Kolleg*innen%20aus%20den%20verschiedensten%20Nationen%20und%20Kulturen%20zeigte%20seinen%20vollen%20Mehrwert%20und%20ich%20habe%20viele%20tolle%20Kolleg*innen%20kennengelernt%2C%20mit%20denen%20ich%20an%20agilen%20Softwareprojekten%20arbeitete.%20Vom%20Entwickeln%20eines%20kleinen%20Analysetools%20mit%20Python%20bis%20zur%20Präsentation%20von%20Interviewergebnissen%20habe%20ich%20so%20einiges%20erlebt%20und%20gerade%20die%20Theorie%20aus%20der%20Vorlesung%20Datenbanken%20half%20mir%20bei%20der%20Erstellung%20einer%20automatisierten%20Auswertung%20mit%20Natural%20Language%20Processing.%20Neben%20den%20vielen%20Erfahrungen%20der%20Arbeitswelt%20nehme%20ich%20auch%20viele%20persönliche%20Impressionen%20dieser%20vielschichtigen%20Stadt%20mit.%0A",
+            },
+            {
+              markerName: "Jan%2C%2019%2C%20Barcelona",
+              markerLon: 2.07912,
+              markerLat: 41.50547,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20habe%20meinen%20Auslandsaufenthalt%20in%20Sant%20Cugat%20del%20Valles%20in%20der%20Infrastructure%20Abteilung%20meines%20Unternehmens%20verbracht.%20Dort%20habe%20ich%20mich%20mit%20dem%20WAN%20und%20weiteren%20Networking%20Themen%20beschäftigt.%20Nach%20sechs%20Wochen%20musste%20ich%20Coronabedingt%20den%20Aufenthalt%20leider%20abbrechen.%0A",
+            },
+            {
+              markerName: "Simon%2C%2021%2C%20Hong%20Kong",
+              markerLon: 115.109497,
+              markerLat: 22.396427,
+              markerIconImage: 0,
+              markerContent:
+                "Ich%20war%20für%20drei%20Monate%20in%20Hong%20Kong%20im%20Headoffice%20der%20IT%20APAC.%20Dort%20habe%20ich%20ein%20Asset%20Management%20aufgebaut%2C%20dass%20das%20Finanzreporting%20der%20IT%20und%20kleinere%20Prozesse%20verbessert.%20Hong%20Kong%20ist%20eine%20super%20vielzeitige%20Stadt%2C%20in%20der%20es%20viel%20zu%20entdecken%20und%20erleben%20gibt%20und%20es%20eignet%20sich%20perfekt%20um%20Ostasien%20etwas%20besser%20kennenzulernen.%0A",
+            },
+            {
+              markerName: "Lukas%2C%2021%2C%20Shanghai",
+              markerLon: 121.34904785157933,
+              markerLat: 31.11992986871403,
+              markerIconImage: 0,
+              markerContent:
+                "In meiner vierten Praxisphase habe ich die Möglichkeit bekommen, nach Shanghai, China zu gehen. Ich habe mich dort mit Geschäftsprozessen auseinander gesetzt und darüber meine zweite Projektarbeit geschrieben. Dabei habe ich mit vielen Leuten aus unterschiedlichen Abteilungen zu tun gehabt, was sehr spannend und interessant war. Das hat es mir ermöglicht Prozesse aus verschiedensten Sichtweisen zu sehen. In meiner Freizeit konnte ich Shanghai erkunden und dort auf die höchste Aussichtsplattform der Welt gehen.",
+            },
+            {
+              markerName: "Summer%20School%2C%20Universidad%20de%20Almer%EDa",
+              markerLon: -2.4613769531173357,
+              markerLat: 36.83233322511802,
+              markerIconImage: 6,
+              markerContent:
+                "Exkursion inkl. Vorlesungen%20des%20Kurses%20an%20die%20Universit%E4t%20nach%20Almer%EDa%2C%20Spanien.",
+              markerNameLink: "httpss://www.ual.es",
+            },
+            {
+              markerName: "Summer%20School%2C%20University%20of%20Izmir",
+              markerLon: 26.789721679695532,
+              markerLat: 38.61361470007314,
+              markerIconImage: 6,
+              markerContent:
+                "Exkursion inkl. Vorlesungen%20des%20Kurses%20zur%20University%20of%20Izmir.",
+              markerNameLink: "https://www.ieu.edu.tr/en",
+            },
+            {
+              markerName: "Summer%20School%2C%20Cambridge",
+              markerLon: 0.13139648438293003,
+              markerLat: 52.17137624775741,
+              markerIconImage: 6,
+              markerContent:
+                "Exkursion inkl. Vorlesungen%20des%20Kurses%20nach%20Cambridge.",
+              markerNameLink: "httpss://aru.ac.uk",
+            },
+            {
+              markerName: "Summer%20School%2C%20Bristol",
+              markerLon: -2.5767333984296372,
+              markerLat: 51.461678816264296,
+              markerIconImage: 6,
+              markerContent:
+                "Exkursion inkl. Vorlesungen%20des%20Kurses%20zur%20University%20of%20Bristol.",
+              markerNameLink: "httpss://www.uwe.ac.uk",
+            },
+          ],
+          requiredField: "Dieses Feld muss ausgefüllt werden.",
+        };
+        // ********** - comapp - mapGenerator jsonData - end - ************ //
+        $.fn.getJsonData = function () {
+          return json;
+        };
+        $("body").mapGeneratorModel("initVal");
+        $("body").mapGeneratorMap("buildMap");
+        $("body").mapGeneratorMap("setBaseMode");
+      })(window.jQuery);
+
+      if (!window.console)
+        console = {
+          log: function () {},
+          info: function () {},
+          warn: function () {},
+          error: function () {},
+          debug: function () {},
+        };
+
+      function setFlashStatus() {
+        $("body").mapGeneratorModel("setFlashStatus", true);
+      }
+    </script>
+    <script src="https://mediensyndikat.de/geo/generator2.js"></script>
+  </body>
+</html>

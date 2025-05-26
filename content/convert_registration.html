@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Convert Registration Link</title>
+</head>
+<body>
+  Bitte hier Link eingeben:
+  <label>
+    <input id="input" type="text">
+  </label>
+
+    <a id="link"></a>
+</body>
+<script>
+  document.getElementById("input").addEventListener("input", () => {
+      if(document.getElementById("input").value.length > 43) {
+        let link = "https://brilliancrm.com/" + document.getElementById("input").value.substring(43)
+        document.getElementById("link").innerHTML = link
+        document.getElementById("link").href = link
+    }
+  })
+</script>
+</html>
